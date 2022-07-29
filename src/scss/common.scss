@@ -1,0 +1,413 @@
+//================================================================================================================================
+//ОБЩИЕ СТИЛИ
+//========================================================================================================================================================
+//ТЕКСТ
+.title {
+  font-family: "Oswald";
+  font-weight: 700;
+  @include adaptive-value("font-size", 45, 37, 0);
+  @include adaptive-value("line-height", 57, 55, 0);
+  letter-spacing: 2px;
+}
+//==================================================================================================================================
+//ССЫЛКИ
+
+a:hover:not(.btn, .menu__link),
+a:focus {
+  color: #ffc3c3;
+}
+a:hover,
+.btn:hover,
+label #checkboxmark--body,
+.spoilers--block__quest:hover,
+.form__row:last-child .form__group,
+label:hover {
+  cursor: url("../images/hand.png"), pointer;
+}
+
+*:focus-visible,
+.btn:focus-visible {
+  border: 2px solid rgb(59, 50, 185);
+}
+a.menu__link:hover:before {
+  opacity: 1;
+  transition: all 0.3s ease 0s;
+}
+input:focus {
+  border: transparent;
+  color: none;
+}
+//========================================================================================================================================================
+//ФОРМА
+label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: em(15) em(10) em(10) em(10);
+  display: block;
+  transition: all 0.3s ease 0s;
+  pointer-events: none;
+}
+input,
+select {
+  font-family: "Montserrat";
+  position: relative;
+  height: 48px;
+  width: 100%;
+  margin: 0 0 0 0;
+  padding: em(10) 0 0 em(7);
+  font-size: rem(16);
+  background: transparent;
+  //outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 2px;
+  z-index: 1000;
+  color: rgb(255, 219, 219);
+}
+//ЧЕКБОКСЫ
+//label--checkbox
+.checkboxmark--body {
+  pointer-events: visiblePainted;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  position: absolute;
+  appearance: none;
+  width: 0;
+  height: 0;
+  border: 0;
+}
+.check__box,
+.radio {
+  position: absolute;
+  height: 1em;
+  width: 1em;
+  margin: 0.28em 0 0 -1.9em;
+  background-color: rgb(255, 255, 255);
+}
+.check__box {
+  border-radius: 3px;
+  border: 1px solid $color-main-red;
+}
+.radio {
+  border-radius: 50%;
+  border: 1px solid $color-text-grey;
+}
+.form__input--checkbox:checked + .check__box,
+.form__input--radio:checked + .radio {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+.form__input--checkbox:checked + .check__box {
+  background-size: 0.7em;
+  background-image: url(../images/accept.svg);
+}
+.form__input--radio:checked + .radio {
+  background-image: url(../images/accept__radio.svg);
+  border: 1px solid $color-main-red;
+}
+
+.form__input--checkbox:focus-visible + .check__box {
+  border: 2px solid rgb(59, 50, 185);
+}
+input:focus:not(input[type="checkbox"]),
+input:focus:not(input[type="radio"]) {
+  border: 2px solid rgb(209, 89, 89);
+}
+
+.form {
+  &__group {
+    flex: 1 0 40%;
+    position: relative;
+    margin-bottom: rem(15);
+  }
+  &__label--checkbox {
+    z-index: 100000000;
+    padding: 0 0 0 2em;
+  }
+  &__title {
+    margin: 0 0 em(10) 0;
+    font-size: em(20);
+    font-weight: 600;
+  }
+  &__subtitle {
+    margin: 0 0 em(32) 0;
+    font-weight: 300;
+  }
+  &__row {
+    @media (min-width: $tablet) {
+      display: flex;
+      flex-flow: row;
+      gap: em(20);
+      margin-bottom: rem(16);
+    }
+  }
+  //фокус textarea
+  &__row:nth-child(2) {
+    margin: 1em 0 1em 0;
+    width: 100%;
+    position: relative;
+
+    .textarea--form {
+      padding: em(30) em(10) em(122) em(7);
+    }
+  }
+
+  &__button {
+    display: inline-block;
+    color: $color-lightred;
+    border-radius: 2px;
+    margin: em(32) 0 0 0;
+    width: 100%;
+    @media (min-width: $tablet) {
+      max-width: 214px;
+      margin: 0;
+      border-radius: 5px;
+    }
+  }
+}
+
+.form__input:focus ~ .form__label,
+.form__input:not(:placeholder-shown) ~ .form__label {
+  font-size: rem(12);
+  padding: em(0) em(10) em(10) em(10);
+  color: #ffd6d6;
+}
+.textarea:focus ~ .form__label,
+.textarea:not(:placeholder-shown) ~ .form__label {
+  opacity: 0;
+}
+
+.form__input:focus {
+  padding: em(10) 0 0 em(7);
+  font-size: rem(16);
+}
+
+.form__body .form__row:last-child .form__group {
+  margin: 0;
+  display: flex;
+  gap: em(10);
+  input {
+    margin: em(5) 0 0 0;
+  }
+}
+//========================================================================================================================================================
+
+summary {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+}
+//=================================================================================================================================
+//КНОПКИ
+
+.btn {
+  display: inline-block;
+  padding: 13px 42px;
+  height: 45px;
+  border-radius: 8px;
+  color: white;
+  transition: all 0.3s ease 0s;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 140%;
+  text-align: center;
+}
+.btn--r {
+  background: #961914;
+}
+.btn--w {
+  border: 1px solid #961914;
+  color: #961914;
+  background: white;
+  font-weight: 700;
+}
+.btn--r:hover {
+  background: #75110d;
+}
+.btn--w:hover {
+  background: #ead1d0;
+}
+.btn--r:active {
+  background: #a32925;
+}
+.btn--w:active {
+  background: #ffe4e0;
+}
+
+//=================================================================================================================================
+//ДЕКОРАТИВНЫЕ ЭЛЕМЕНТЫ
+#ellipse {
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+}
+#ellipse::before {
+  content: url("../images/Ellipse.svg");
+  position: absolute;
+  @include adaptive-value("right", -5, -20, 0);
+  @include adaptive-value("top", 0, -2, 0);
+  z-index: -1;
+}
+.three-line {
+  position: relative;
+  display: inline-block;
+}
+.icon-before::before,
+.three-line::before {
+  content: url("../images/6.why-zoov/0.svg");
+  position: absolute;
+}
+
+//================================================================================================================================
+//ДЕСКТОПНЫЙ ФЛЕКС
+.content {
+  @media (min-width: 1024px) {
+    display: flex;
+    flex-flow: row;
+    gap: 20px;
+    align-items: center;
+  }
+}
+//================================================================================================================================
+//ПРОБНЫЕ НАБОРЫ // слайдер с собаками
+.item-set {
+  &__body {
+    line-height: 130%;
+    padding: 0 0 64px 0;
+  }
+
+  &__image {
+    position: relative;
+    margin: 0 0 24px 0;
+    img {
+      position: relative;
+      max-width: 100%;
+    }
+  }
+
+  .item-set__category {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: #fff4f3;
+    border-radius: 8px;
+    padding: 6px 12px;
+    color: #ec7973;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  &__set-name {
+    font-family: "Roboto";
+    font-weight: 700;
+    line-height: 130%;
+    color: #000000;
+  }
+
+  &__subname {
+    font-size: 13px;
+    color: #9f9e9d;
+  }
+  &__text {
+    font-family: "Montserrat";
+    font-weight: 4 00;
+    font-size: 14px;
+    line-height: 140%;
+    color: #434242;
+  }
+
+  &__weight {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    color: #9f9e9d;
+  }
+
+  &__price {
+    margin: 0 0 16px 0;
+  }
+
+  &__old-price {
+    display: inline-block;
+    text-decoration: line-through;
+    color: #434242;
+  }
+
+  &__new-price {
+    padding-left: 10px;
+    display: inline-block;
+    font-weight: 600;
+  }
+}
+//===================================================================================================================================// КАК ПОЛУЧИТЬ ZOOV? // строчные блоки
+.row-block {
+  &__body {
+    margin: 40px 0;
+  }
+
+  &__body:last-child {
+    margin: 0;
+
+    @media (min-width: 1024px) {
+      margin: 40px 0;
+    }
+  }
+
+  &__icon {
+    margin: 0 0 16px 0;
+  }
+
+  &__name {
+    margin: 8px 0;
+    font-weight: 600;
+  }
+
+  &__text {
+    margin: 10px 0;
+    line-height: 140%;
+  }
+}
+//Иконки
+.icon-before {
+  position: relative;
+}
+
+.icon-before::before {
+  left: 30px;
+  bottom: 18px;
+}
+//=================================================================================================================================
+//СВАЙПЕР
+.swiper {
+  height: 100%;
+  width: 100%;
+
+  @media (max-width: 480px) {
+    .swiper-slide {
+      opacity: 0.5;
+    }
+    .swiper-slide-active {
+      opacity: 1;
+    }
+  }
+}
+
+.swiper-pagination {
+  bottom: 24px;
+}
+
+.swiper-pagination-bullet {
+  background-color: transparent;
+  opacity: unset;
+  background-color: #ead1d0;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #961914;
+}

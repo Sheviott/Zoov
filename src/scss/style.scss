@@ -1,0 +1,1353 @@
+//@import "fonts";
+// <Подключаем шрифты>======================================================================================================
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic);
+@import url(https://fonts.googleapis.com/css?family=Oswald:200,300,regular,500,600,700);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+// <Подключаем шрифты>============================================================================================
+
+// <Шрифт по умолчанию>=========================================================================================
+$fontfamily: "Montserrat";
+// <Шрифт по умолчанию>=========================================================================================
+
+// <ПЕРЕМЕННЫЕ>=======================================================================================
+$minWidth: 320px;
+$tablet: 768px;
+$pc: 1024px;
+$fontsize: 16;
+//ЦВЕТА============================================================================================
+$color-text-grey: #434242;
+$color-background-pink: #ead1d0;
+$color-background-lightpink: #fff4f3;
+$color-lightred: #ec7973;
+$color-main-red: #961914;
+// <ПЕРЕМЕННЫЕ>=======================================================================================
+
+@import "nullstyle.scss";
+@import "adaptive.scss";
+@import "base.scss";
+@import "common.scss";
+@import "popup.scss";
+@import "header.scss";
+@import "footer.scss";
+
+// <ОБОЛОЧКА>======================================================================================================
+.wrapper {
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+[class*="__container"] {
+  max-width: 1298px;
+  padding: 0 24px;
+  margin: 0 auto;
+}
+
+.page {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.ibg {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.ibg img {
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+// <ОБОЛОЧКА>======================================================================================================
+
+// <Оcновная сетка>======================================================================================================
+// для пользльзователей предпочитающих отключать анимации
+// нет поддержки в EI / opera mini
+@media screen and (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  font-size: 1em;
+  line-height: 140%;
+  font-style: normal;
+  font-weight: 400;
+  color: black;
+}
+//========================================================================================================================================================
+//ГЛАВНЫЙ ФУЛЛСКРИН ЭКРАН
+.main-screen {
+  position: relative;
+  min-height: 100vh;
+  color: white;
+  &__body {
+    position: relative;
+    width: 100%;
+    @include adaptive-value("padding-top", 224, 190, 0);
+    @include adaptive-value("padding-bottom", 225, 173, 0);
+
+    @media (max-width: 425px) {
+      padding-left: em(15);
+      padding-right: em(15);
+    }
+  }
+  &__title {
+    @include adaptive-value("width", 490, 300, 0);
+    margin: 0 0 1rem 0;
+    @media (min-width: $pc) {
+      font-size: rem(54);
+      line-height: 130%;
+      width: rem(500);
+      #ellipse::before {
+        content: url("../images/ellipse_b.svg");
+        top: -3px;
+        left: -25px;
+      }
+    }
+    @media (max-width: 425px) {
+      br {
+        display: none;
+      }
+    }
+  }
+  &__text {
+    width: 235px;
+    font-size: rem(20);
+    line-height: 140%;
+    font-weight: 300;
+    margin: 0 0 3em 0;
+    @media (min-width: 425px) {
+      width: 370px;
+      margin: 0 0 2em 0;
+    }
+  }
+  &__image-ibg {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    min-height: 100%;
+    z-index: -1;
+  }
+
+  &__ZOOV {
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    bottom: 10%;
+  }
+
+  //мобильный и декстопный текст на главном экране
+  @media (min-width: $pc) {
+    #mobile {
+      display: none;
+    }
+  }
+  @media (max-width: 1023px) {
+    #desktop {
+      display: none;
+    }
+  }
+}
+//========================================================================================================================================================
+//блок ЧТО ТАКОЕ BARF
+.BARF {
+  &__content {
+    @media (min-width: $pc) {
+      display: block;
+    }
+  }
+  // основной текстовый контент
+  &__row {
+    @media (min-width: $tablet) {
+      display: flex;
+      flex-flow: row;
+      gap: em(28);
+    }
+    @media (min-width: $pc) {
+      padding: 0 0 4rem 0;
+    }
+  }
+  &__body {
+    @include adaptive-value("padding-top", 160, 80, 0);
+    @include adaptive-value("padding-bottom", 140, 40, 0);
+  }
+  &__title {
+    @include adaptive-value("margin-bottom", 32, 24, 0);
+  }
+  &__text {
+    line-height: 150%;
+    color: $color-text-grey;
+    margin-bottom: 1.8em;
+    font-weight: 300;
+  }
+  //заголовок для списка
+  h3 {
+    font-weight: 600;
+    color: black;
+    @media (min-width: $pc) {
+      margin: 0;
+    }
+  }
+
+  &__list {
+    margin: 1em 0 2.1em 0;
+    @media (min-width: $pc) {
+      margin: 0;
+    }
+  }
+
+  &__item {
+    color: $color-text-grey;
+    position: relative;
+    font-weight: 600;
+    padding: 0.5em;
+    @include adaptive-value("padding-left", 12, 15, 0);
+  }
+  //стилизация списка
+  &__item:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 1em;
+    background-color: $color-main-red;
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+  //картинка
+  &__image-dog {
+    img {
+      width: 100%;
+    }
+    @media (min-width: $tablet) {
+      flex: 1 0 50%;
+    }
+  }
+  //СЛАЙДЕР
+  .consist {
+    &__body {
+      @media (min-width: $pc) {
+        &::after {
+          content: url("@img/2.BARF/line-desk.svg");
+          position: absolute;
+          z-index: 10;
+          left: 30px;
+          top: 60px;
+        }
+      }
+    }
+    //заголовок слайда
+    &__name {
+      font-weight: 600;
+      font-size: 0.9em;
+      line-height: 200%;
+      text-transform: uppercase;
+      color: black;
+      margin-bottom: 1em;
+    }
+
+    &__list {
+      display: inline-block;
+      @media (min-width: $pc) {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: em(42);
+        padding: 0 em(10);
+      }
+      @media (min-width: 1440px) {
+        gap: em(72);
+      }
+    }
+    //делитель слайдера / таблицы на ПК
+    .divider {
+      flex-shrink: 0;
+    }
+
+    &__item {
+      position: relative;
+      padding-left: em(45);
+      font-weight: 500;
+      font-size: em(18);
+      line-height: 250%;
+      color: $color-text-grey;
+    }
+    //===========================================
+    //ИКОНКИ СЛАЙДЕРА
+    &__item:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: em(8);
+      display: inline-block;
+    }
+
+    .item-meat:before {
+      content: url("@img/2.BARF/slider/meat.svg");
+    }
+    .item-bone:before {
+      content: url("@img/2.BARF/slider/bone.svg");
+    }
+    .item-veget:before {
+      content: url("@img/2.BARF/slider/veget.svg");
+    }
+    .item-liver:before {
+      content: url("@img/2.BARF/slider/liver.svg");
+    }
+    .item-by-prod:before {
+      content: url("@img/2.BARF/slider/by-prod.svg");
+    }
+    .item-nuts:before {
+      content: url("@img/2.BARF/slider/nuts.svg");
+    }
+    .item-fruits:before {
+      content: url("@img/2.BARF/slider/fruits.svg");
+    }
+    .swiper-pagination-bullet {
+      border: 1px solid $color-main-red;
+    }
+  }
+  //СОСТАВ ПИТАНИЯ
+  .consist__slider {
+    padding: rem(56) rem(18) rem(72) rem(18);
+    background-color: $color-background-pink;
+    width: 100%;
+    :first-child {
+      margin-right: -10px;
+    }
+    @media (min-width: $pc){
+    padding: rem(32) rem(40) rem(32) rem(40);
+        
+    }
+  }
+  //линия-декор
+  .consist__slider::before {
+    content: url("@img/slider/line.svg");
+    position: absolute;
+    z-index: 10;
+    left: 15px;
+    top: 0px;
+    @media (min-width: $pc) {
+      display: none;
+    }
+  }
+}
+
+//========================================================================================================================================================
+//ПРОБНЫЕ НАБОРЫ ОТ ZOOV
+
+.trial-sets {
+  &__body {
+    background-color: $color-background-lightpink;
+    padding-bottom: 1.5em;
+    padding-top: 3.5em;
+    @media (min-width: $pc) {
+      padding: 4.6em 0 4em 0;
+    }
+  }
+  &__wrapper {
+    @media (min-width: $pc) {
+      display: flex;
+      flex-flow: row;
+      gap: em(20);
+    }
+  }
+  &__content {
+    margin-bottom: 2em;
+  }
+  &__title {
+    margin: 0 0 1em 0;
+    font-size: 2.7em;
+
+    #ellipse::before {
+      content: url("../images/3.trial-sets/ellipse.svg");
+      right: -25px;
+      top: -5px;
+    }
+
+    @media (min-width: $pc) {
+      flex: 1 0 49%;
+      margin: 0;
+      letter-spacing: 1.2px;
+      font-size: 2.7em;
+    }
+  }
+  &__text {
+    opacity: 1;
+  }
+  // Декор яблоко и мясо
+  &__decor {
+    position: relative;
+    &::after,
+    &::before {
+      position: absolute;
+    }
+    &::after {
+      content: url("@img/3.trial-sets/meat.svg");
+      top: 80px;
+      right: -50px;
+      @media (min-width: 1200px) {
+        top: 130px;
+        right: -60px;
+      }
+    }
+    &::before {
+      content: url("@img/3.trial-sets/apple.svg");
+      top: 45px;
+      right: 80px;
+      @media (min-width: 1200px) {
+        top: 70px;
+        right: 70px;
+      }
+    }
+    @media (max-width: 1023px) {
+      display: none;
+    }
+  }
+
+  .item-set {
+    &__body {
+      padding: 0 0 em(64) 0;
+      @media (min-width: 1024px) {
+        padding: 0;
+      }
+    }
+
+    &__image {
+      &:hover {
+        transform: scale(1.02);
+        transition: all 0.3s ease 0s;
+      }
+      width: 100%;
+      position: relative;
+      margin: 0 0 em(24) 0;
+      img {
+        z-index: 1;
+        position: relative;
+        width: 100%;
+      }
+      .item-set__category {
+        //display: none;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: $color-background-lightpink;
+        border-radius: 8px;
+        padding: em(8) em(14);
+        color: $color-lightred;
+        font-weight: 500;
+        font-size: em(12);
+        line-height: em(17);
+        z-index: 1;
+      }
+    }
+    &__set-name {
+      margin: 0 0 em(8) 0;
+    }
+    &__subname {
+      font-size: em(13);
+      line-height: 130%;
+      color: $color-text-grey;
+    }
+    &__text {
+      font-family: "Montserrat";
+      font-size: em(14);
+      margin: 0 0 em(8) 0;
+    }
+    &__weight {
+      font-family: "Montserrat";
+      font-size: em(13);
+      line-height: 130%;
+      margin: 0 0 em(10) 0;
+      color: #9f9e9d;
+    }
+    &__price {
+      margin: 0 0 1em 0;
+    }
+    &__new-price {
+      padding-left: em(10);
+    }
+  }
+  &__calculate-feed {
+    flex: 1 0 25%;
+    background: #ead1d0;
+    position: relative;
+    &::before {
+      content: url("@img/3.trial-sets/line-mobile.svg");
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+    @media (min-width: 375px) {
+      &::before {
+        content: url("@img/3.trial-sets/line.svg");
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+      }
+    }
+    @media (min-width: $pc) {
+      &::before {
+        content: url("@img/3.trial-sets/line-desktop.svg");
+        position: absolute;
+        top: 120px;
+        left: 10px;
+        z-index: 10;
+        transform: rotate(7deg);
+      }
+    }
+  }
+  .calculate-feed {
+    &__body {
+      height: 100%;
+      text-align: center;
+      padding: em(32) em(24);
+      margin: em(32) 0 0 0;
+      position: relative;
+      z-index: 1000;
+      @media (min-width: $pc) {
+        text-align: left;
+        margin: 0;
+      }
+    }
+    &__text {
+      font-weight: 500;
+      font-size: em(20);
+      margin-bottom: em(24);
+      @media (min-width: 1200px) {
+        margin-bottom: em(42);
+        font-weight: 600;
+        font-size: em(23);
+        letter-spacing: 0.02em;
+        color: black;
+      }
+      text-align: center;
+      letter-spacing: 0.02em;
+      @media (max-width: 1023.99px) {
+        .desktop {
+          display: none;
+        }
+      }
+      @media (min-width: 1023.99px) {
+        text-align: initial;
+        .mobile {
+          display: none;
+        }
+      }
+    }
+    &__button {
+      z-index: 3;
+    }
+  }
+}
+//========================================================================================================================================================
+//РАЦИОНЫ ZOOV
+
+.ration {
+  &__body {
+    padding: em(80) 0;
+  }
+  &__content {
+    @media (min-width: $pc) {
+      display: flex;
+      flex-flow: row;
+    }
+  }
+  &__title {
+    margin-bottom: rem(20);
+    #ellipse::before {
+      content: url("../images/Ellipse_m.svg");
+      right: -28px;
+      top: -5px;
+      transform: rotate(4deg);
+    }
+    @media (min-width: $pc) {
+      margin-bottom: 0;
+      flex: 1 0 auto;
+      padding: 0 em(50) 0 0;
+    }
+  }
+  &__text {
+    margin: 1em 0 0 0;
+  }
+  &__swiper {
+    margin: 2em 0 0 0;
+  }
+  .swiper-pagination-bullet {
+    background-color: $color-background-pink;
+    border: transparent;
+  }
+  .swiper-pagination-bullet-active {
+    background-color: $color-main-red;
+  }
+  .swiper-button-prev, .swiper-button-next {
+    color: #ec7973;
+    top: 30%;
+  }
+  .item-set {
+    &__set-name {
+      padding: em(45) 0 em(4) 0;
+    }
+    &__image {
+      &:hover {
+        transform: scale(1.02);
+        transition: all 0.3s ease 0s;
+      }
+    }
+    &__subname {
+      padding: 0 0 1em 0;
+    }
+    &__text {
+      padding: 0 0 em(11) 0;
+    }
+    &__weight {
+      margin: 0 0 em(24) 0;
+    }
+
+    &__button {
+      display: inline-block;
+    }
+  }
+}
+//========================================================================================================================================================
+//РЕКОМЕНДОВАННЫЕ НОРМЫ КОРМЛЕНИЯ
+.recommendations {
+  &__body {
+    background: #fff4f3;
+    padding: em(44) 0 em(24) 0;
+  }
+  &__title {
+    position: relative;
+    margin: 0 0 em(15) 0;
+    font-weight: 700;
+    font-size: em(30);
+    line-height: 130%;
+    letter-spacing: 0.02em;
+    color: black;
+    text-transform: none;
+
+    @media (min-width: 377px) {
+      margin: 0;
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 600;
+      font-size: em(20);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: $color-main-red;
+
+      &::before {
+        content: url("/@img/5.recommendations/line-desktop.svg");
+        position: absolute;
+        top: 60px;
+        left: 0;
+        @media (min-width: 537px) {
+          top: 30px;
+        }
+      }
+    }
+  }
+  &__subtitle {
+    margin: 0 0 em(20) 0;
+  }
+  &__content .title,
+  .subtitle {
+    @media (max-width: 376px) {
+      display: none;
+    }
+  }
+  &__content {
+    @media (min-width: 377px) {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .title {
+      letter-spacing: 0.02em;
+      margin: 0 0 em(5) 0;
+      font-size: em(29);
+    }
+    .subtitle {
+      font-weight: 600;
+      font-size: 1em;
+      letter-spacing: 0.02em;
+      color: black;
+    }
+  }
+
+  &__aduld {
+    width: 100%;
+    @media (min-width: 377px) {
+      width: 100%;
+    }
+  }
+  &__table-wrapper {
+    margin: em(50) 0 0 0;
+
+    @media (min-width: 1280px) {
+      display: flex;
+      flex-flow: row;
+      gap: em(44);
+    }
+    @media (min-width: 1440px) {
+      gap: em(64);
+    }
+  }
+
+  &__table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+
+    @media (max-width: 1279px) {
+      .desktop {
+        visibility: collapse;
+      }
+    }
+    @media (min-width: 1280px) {
+      text-align: start;
+    }
+    thead {
+      th {
+        color: $color-text-grey;
+        border-bottom: 2px solid rgba($color: #434242, $alpha: 0.2);
+        padding: em(8);
+        @media (min-width: 1280px) {
+          text-align: start;
+          margin-right: em(20);
+        }
+      }
+    }
+    td {
+      padding: em(10);
+      font-weight: 500;
+      color: black;
+    }
+    tr {
+      border-bottom: 2px solid rgba($color: #434242, $alpha: 0.2);
+    }
+  }
+  @media (max-width: 1279px) {
+    &__table:last-child th,
+    &__table:last-child .desktop tr {
+      border: none;
+    }
+  }
+  //@media (min-width: 1279px) {
+  //  &__table:last-child .desktop tr {
+  //    border-bottom: 1px solid red;
+  //  }
+  //}
+
+  &__text {
+    font-size: em(14);
+    color: black;
+    margin: 1em 0 2em 0;
+    span {
+      font-weight: 700;
+    }
+  }
+  &__note {
+    font-size: em(12);
+    color: #635d5d;
+  }
+
+  .title {
+    text-transform: uppercase;
+  }
+  .swiper {
+    padding: em(42) 0 1em 0;
+  }
+  .swiper-pagination {
+    bottom: 90%;
+    @media (min-width: 376.99px) {
+      display: none;
+    }
+  }
+  .swiper-pagination-bullet {
+    bottom: 100px;
+    @include adaptive-value("width", 283, 135, 0);
+    height: 3px;
+    border-radius: 0;
+    background-color: transparent;
+    opacity: unset;
+    background-color: $color-background-pink;
+    color: $color-text-grey;
+    font-weight: 600;
+    border-radius: 10%;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: $color-main-red;
+    color: $color-main-red;
+    font-weight: 800;
+  }
+  .swiper-wrapper {
+    @media (min-width: $tablet) {
+      display: flex;
+      flex-flow: row nowrap;
+      gap: em(75);
+    }
+  }
+  .swiper-slide {
+    @media (min-width: 300px) {
+      opacity: 1;
+    }
+    @media (min-width: $tablet) {
+      flex: 0 1 50%;
+    }
+  }
+  .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+  .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0;
+  }
+}
+
+//========================================================================================================================================================
+//ПОЧЕМУ ZOOV
+.why-zoov {
+  &__body {
+    position: relative;
+    padding: em(73) 0 em(87) 0;
+    &::before,
+    &::after {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    &::before {
+      content: url("/@img/6.why-zoov/line_top.svg");
+      top: 15%;
+      @media (min-width: $pc) {
+        top: 130px;
+      }
+    }
+    &::after {
+      content: url("/@img/6.why-zoov/line_top.svg");
+      top: 70%;
+      @media (min-width: $pc) {
+        display: none;
+      }
+    }
+  }
+  &__title {
+    .three-line::before {
+      top: 27px;
+      right: -20px;
+      transform: scale(1, -1);
+    }
+  }
+
+  &__row {
+    @media (min-width: $pc) {
+      display: flex;
+      flex-flow: row nowrap;
+      gap: em(27);
+    }
+  }
+}
+//========================================================================================================================================================
+//C ЛЮБОВЬЮ ZOOV
+.love-zoov {
+  position: relative;
+  overflow: hidden;
+
+  &__body {
+    position: relative;
+    background: $color-background-lightpink;
+    padding: em(53) em(12) em(140) em(12);
+    @media (min-width: 425px) {
+      padding: em(53) em(12) em(250) em(12);
+    }
+    @media (min-width: 600px) {
+      padding: em(53) em(12) em(300) em(12);
+    }
+    @media (min-width: $tablet) {
+      padding: em(53) em(12) em(80) em(12);
+    }
+
+    //&::after {
+    //  content: "";
+    //    background-image: url(/@img/7.love-zoov/line-top.svg);
+    //    width: 100%;
+    //    height: 100%;
+    //    position: absolute;
+    //    background-size: cover;
+    //    left: 0;
+    //    top: 85%;
+    //  //@media (min-width:$tablet){
+    //  //transform: rotate(15deg);
+    //  //left: 32%;
+    //  //width: 60%;
+    //  //height: 60%;
+    //  //}
+    //}
+    //&::before {
+    //  content: '';
+    //  background-image: url(/@img/7.love-zoov/line-bot.svg);
+    //  position: absolute;
+    //  width: 60%;
+    //  height: 60%;
+    //  position: absolute;
+    //  background-size: cover;
+    //  //left: -50%;
+    //  //bottom: -15%;
+    //  transform: rotate(10deg);
+    //  z-index: 1;
+    //  //transform: scale(1,1);
+    //  left: 36%;
+    //  bottom: -10%;
+    //}
+    //&::before {
+    //  content: url("/@img/love-zoov/line-bot.svg");
+    //  left: 20px;
+    //  bottom: 100px;
+    //  transform: rotate(15deg);
+    //}
+    @media (min-width: $pc) {
+      padding: em(53) em(12) em(200) em(12);
+    }
+  }
+  &__content {
+    @media (min-width: $tablet) {
+      display: flex;
+      flex-flow: row-reverse;
+      justify-content: center;
+      gap: em(50);
+    }
+    @media (min-width: $pc) {
+      gap: em(120);
+    }
+  }
+  &__title {
+    color: black;
+    margin: 0 0 em(10) 0;
+    z-index: -1;
+    @media (min-width: $pc) {
+      margin: 0 0 em(5) 0;
+    }
+  }
+  &__text {
+    z-index: 1000;
+    p {
+      padding: em(10) 0;
+    }
+    font-family: "Montserrat";
+    height: 100%;
+    line-height: 130%;
+    color: $color-text-grey;
+    padding: em(24) 0 0 0;
+
+    //========================================================================================================================================================
+    //МЕДИА
+    @media (min-width: $tablet) {
+      flex: 0 0 350px;
+    }
+    @media (min-width: $pc) {
+      max-width: 523px;
+      flex: 0 0 50%;
+      margin: em(40) 0 0 0;
+    }
+  }
+  &__image-block {
+    @media (min-width: $tablet) {
+      flex: 0 0 300px;
+    }
+    @media (min-width: $pc) {
+      flex: 0 0 400px;
+    }
+  }
+  //========================================================================================================================================================
+  //МЕДИА
+
+  .three-line::before {
+    top: -15px;
+    right: -20px;
+    transform: rotate(-25deg);
+  }
+  .image-block {
+    &__body {
+      margin: em(50) 0 0 0;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      z-index: 2;
+      //========================================================================================================================================================
+      //ДЕКОР СОБАКЕН
+      &::after {
+        content: "";
+        background-image: url(/@img/7.love-zoov/dog@1x.png);
+        width: 30%;
+        height: 30%;
+        position: absolute;
+        background-size: cover;
+        left: 0;
+        top: 85%;
+        @media (min-width: $tablet) {
+          width: 150px;
+          height: 150px;
+          left: -10%;
+          top: 82%;
+        }
+        @media (min-width: $pc) {
+          top: 58%;
+        }
+      }
+      //========================================================================================================================================================
+      //ДЕКОР СЕРДЦЕ
+      &::before {
+        content: "";
+        background-image: url(/@img/7.love-zoov/heart@2x.png);
+        width: 25%;
+        height: 25%;
+        position: absolute;
+        background-size: cover;
+        right: 0;
+        top: 50%;
+        z-index: 10;
+        @media (min-width: $tablet) {
+          width: 120px;
+          height: 120px;
+          top: -7%;
+          right: -10%;
+        }
+        @media (min-width: $pc) {
+          top: 38%;
+          right: -17%;
+        }
+      }
+    }
+    &__img-top {
+      width: 100px;
+      position: relative;
+
+      img {
+        width: 80%;
+        @media (min-width: $tablet) {
+          width: 100%;
+        }
+      }
+      @media (min-width: $pc) {
+        padding: 0 em(60) 0 0;
+      }
+    }
+
+    &__img-bot {
+      position: absolute;
+      //@include adaptive-value("width", 462, 202, 0);
+      left: 30%;
+      bottom: -45%;
+      @media (min-width: $tablet) {
+        left: 0px;
+        bottom: 100px;
+        width: 100%;
+      }
+      @media (min-width: $pc) {
+        left: 33%;
+        bottom: 5%;
+        width: 80%;
+      }
+    }
+  }
+}
+//========================================================================================================================================================
+//КАК ПОЛУЧИТЬ ZOOV
+.get-zoov {
+  &__body {
+    position: relative;
+    padding: em(80) 0;
+  }
+  &__container {
+    padding: 0 em(26);
+  }
+  &__row {
+    flex: 1 0 100%;
+    @media (min-width: $pc) {
+      display: flex;
+      flex-flow: row;
+      gap: em(10);
+    }
+  }
+  .row-block {
+    padding: 0 0 0 em(24);
+    position: relative;
+    @media (min-width: $pc) {
+      padding: 0;
+    }
+    a {
+      font-family: "Montserrat";
+      font-size: 1em;
+      color: $color-main-red;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    &__body {
+      position: relative;
+      @media (min-width: $pc) {
+        flex: 0 0 25%;
+        padding: 0 24px;
+        margin: 100px 0 0 0;
+        &:before {
+          content: url("/@img/8.get-zoov/arrow-small.svg");
+          position: absolute;
+          top: 10px;
+          left: 125px;
+        }
+        &:last-child {
+          &:before {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  .row-block::before {
+    content: url("/@img/get-zoov/arrow.svg");
+    position: absolute;
+    @include adaptive-value("top", 45, 40, 0);
+    left: -7px;
+  }
+  @media (max-width: 1023px) {
+    .row-block::before {
+      content: "";
+      background-image: url(@img/8.get-zoov/arrow.svg);
+      background-repeat: no-repeat;
+      //background-size: 17.4px;
+      @include adaptive-value("background-size", 4.5, 17.4, 0);
+      top: 60px;
+      left: -10px;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      @media (width: 375px) {
+        background-size: 15.9px;
+      }
+    }
+  }
+}
+
+.QA {
+  &__container {
+    @media (min-width: $pc) {
+      display: flex;
+      flex-flow: row;
+    }
+  }
+  &__title {
+    flex: 1 0 40%;
+  }
+  .spoilers--block {
+    &__body {
+      padding: em(40) 0 em(80) 0;
+      @media (min-width: $pc) {
+        padding: 0 0 em(80) 0;
+      }
+    }
+    &__row {
+      border-bottom: 1px solid #e5e5e5;
+    }
+    &__question {
+      padding: em(24) 0;
+      @media (min-width: $pc) {
+        &:first-child {
+          padding: 0 0 em(24) 0;
+        }
+      }
+    }
+    summary {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+    &__title {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 140%;
+      color: #000000;
+      margin: 0 20px 0 0;
+    }
+    &__icon {
+      display: flex;
+      justify-content: center;
+      align-items: start;
+      width: 40px;
+      height: 40px;
+      padding: 18px 0 0 0;
+    }
+    &__answer {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 140%;
+      margin: 12px 0 0 0;
+      color: #434242;
+    }
+  }
+
+  summary:before {
+    right: 0.3em;
+    top: 0.4em;
+    transition: all 0.3s ease 0s;
+    width: 2px;
+    height: 20px;
+    border-radius: 2px;
+    background-color: #961914;
+    position: relative;
+    content: "";
+    position: absolute;
+    transition: transform 0.5s;
+    width: 2px;
+    height: 20px;
+  }
+  summary:after {
+    content: "";
+    position: absolute;
+    transition: transform 0.5s;
+    width: 2px;
+    background-color: #961914;
+    height: 20px;
+    right: 0.3em;
+    top: 0.4em;
+    transform: rotateZ(90deg);
+  }
+  details[open] > summary:before {
+    transform: rotateZ(90deg);
+  }
+
+  //details[open] > summary~*{
+  //  animation: slide .5s ease-in-out;
+  //}
+
+  //@keyframes slide {
+  //  0%    { opacity: 0; }
+  //  100%  { opacity: 1; }
+  //}
+}
+
+.contacts {
+  &__body {
+    background-color: $color-main-red;
+    padding: em(80) 0 em(242) 0;
+    color: white;
+    @media (min-width: $tablet) {
+      padding: em(80) 0 em(70) 0;
+    }
+  }
+  &__container {
+    @media (min-width: $tablet) {
+      display: flex;
+      flex-flow: row;
+      justify-content: space-between;
+      gap: em(60);
+    }
+    @media (min-width: 1440px) {
+      gap: em(187);
+    }
+    @media (min-width: $tablet) {
+      text-align: start;
+    }
+  }
+
+  &__block-form {
+    align-self: flex-end;
+    max-width: 632px;
+    flex: 1 0 60%;
+  }
+  .text--block {
+    &__body {
+      @media (min-width: $tablet) {
+        max-width: 302px;
+      }
+    }
+    &__title {
+      margin: 0 0 em(10) 0;
+    }
+    &__subtitle {
+      font-weight: 300;
+      margin: 0 0 em(32) 0;
+    }
+    &__number {
+      font-weight: 700;
+      margin: 0 0 em(24) 0;
+    }
+    &__social-set {
+      margin: 0 0 em(40) 0;
+      @media (min-width: $tablet) and (max-width: 425px) {
+        display: inline-block;
+      }
+    }
+    .social {
+      background-color: #ab4743;
+      padding: em(10) em(16) em(10) em(42);
+      margin: 0 0 1em 0;
+      font-size: em(14);
+      border-radius: 2px;
+      position: relative;
+      @media (min-width: $tablet) {
+        border-radius: 5px;
+      }
+      &::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: em(8) 0 0 em(5);
+      }
+      &:last-child {
+        margin: 0;
+      }
+    }
+    &__whatsapp, &__telegram  {
+      color: white;
+      display: inline-block;
+      @media (min-width: $tablet) {
+        display: block;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      @media (max-width: 425px) {
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+      }
+      &::after {
+        content: url("@img/9.contacts/whatsapp.svg");
+      }
+    }
+    &__text-subscribe {
+      margin: 0 0 em(56) 0;
+
+      @media (min-width: 768px) {
+        margin: 0;
+      }
+    }
+    &__instagram {
+      text-decoration: underline;
+      color: white;
+    }
+  }
+  .btn:focus-visible {
+    background-color: #ffffff;
+    color: #ff0000;
+  }
+  .btn:hover {
+    background-color: #ffa1a1;
+    color: #ffffff;
+  }
+  .btn:active {
+    background-color: #ff7676;
+    color: #ffffff;
+  }
+}
+
+// <Оcновная сетка>====================================================================================================

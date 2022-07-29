@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/head.html', {
+'title': 'Главная'
+})
+
+<body>
+  <div class="wrapper">
+    @@include('html/header.html', {})
+    <main class="page">
+      <section class="main-screen">
+        <div class="main-screen__body main-screen__container">
+          <h1 class="main-screen__title title">Питание,<br><span>которое</span>
+            <span id="ellipse">полюбит</span>
+            ваш
+            <span id="desktop">хвостик</span>
+            <span id="mobile">питомец</span>
+          </h1>
+          <div class="main-screen__text">Натуральные рационы питания для собак
+            по системе BARF</div>
+          <a href="#ration" class="main-screen__btn btn btn--r">Выбрать рацион</a>
+        </div>
+        <picture class="main-screen__image-ibg">
+          <source media="(max-width: 375px)"
+            srcset='@img/1.main/small_main_dog@1x.jpg 1x, @img/1.main/small_main_dog@2x.jpg 2x'>
+          <source srcset='@img/1.main/big_main_dog@1x.webp 1x, @img/1.main/big_main_dog@2x.webp 2x' type="image/webp">
+          <source srcset='@img/1.main/big_main_dog@1x.jpg 1x, @img/1.main/big_main_dog@2x.jpg 2x'>
+          </source>
+          <img src='@img/1.main/big_main_dog@1x.jpg' alt=''>
+        </picture>
+        <picture class="main-screen__ZOOV">
+          <source media='(max-width: 768px)' srcset='@img/1.main/small_ZOOOV@1x.png 1x,
+                     @img/1.main/small_ZOOOV@2x.png 2x'>
+          <source srcset="@img/1.main/ZOOOV@1x.png 1x, @img/1.main/ZOOOV@2x.png 2x">
+
+          <img src='@img/1.main/ZOOOV@1x.png' srcset='' alt=''>
+        </picture>
+      </section>
+      <section id="BARF" class="BARF">
+        <div class="BARF__container">
+          <div class="BARF__body">
+            <div class="BARF__row">
+              <div class="BARF__content content">
+                <h2 class="BARF__title title">Что такое BARF</h2>
+                <div class="BARF__text text">BARF (Biologically Appropriate Raw Food) — система питания собак основанная
+                  на сырых натуральных продуктах. Такой рацион максимально приближен к естественному пищевому поведению
+                  хищников, а значит биологически правилен. </div>
+                <h3 class="BARF__text text">После перехода на питание
+                  по системе BARF у собак:</h3>
+                <ul class="BARF__list">
+                  <li class="BARF__item">Нормализуется пищеварение</li>
+                  <li class="BARF__item">Проходят аллергические реакции</li>
+                  <li class="BARF__item">Прекращается образование зубного камня</li>
+                  <li class="BARF__item">Появляется больше энергии</li>
+                  <li class="BARF__item">Увеличивается продолжительность жизни</li>
+                </ul>
+              </div>
+              <picture class="BARF__image-dog">
+                <source srcset='@img/2.BARF/dog@1x.webp 1x, @img/2.BARF/dog@2x.webp 2x' type='image/webp'>
+                <source srcset='@img/2.BARF/dog@1x.jpg 1x, @img/2.BARF/dog@2x.jpg 2x'>
+                <img src="@img/2.BARF/dog@1x.jpg" srcset='' alt=''>
+              </picture>
+            </div>
+            <div class="BARF__consist consist swiper">
+              <div class="consist__body swiper-wrapper">
+                <div class="consist__aduld-dogs consist__slider swiper-slide">
+                  <div class="consist__name">Для взрослых</div>
+                  <ul class="consist__list">
+                    <div id="divider">
+                      <li class="consist__item item-meat">Мясо – 70%</li>
+                      <li class="consist__item item-bone">Кости – 10%</li>
+                      <li class="consist__item item-veget">Овощи – 7%</li>
+                      <li class="consist__item item-liver">Печень – 5%</li>
+                    </div>
+                    <div id="divider">
+
+                      <li class="consist__item item-by-prod">Субпродукты – 5%</li>
+                      <li class="consist__item item-nuts">Семена/Орехи – 2%</li>
+                      <li class="consist__item item-fruits">Фрукты – 1%</li>
+                    </div>
+                  </ul>
+                </div>
+                <div class="consist__pappy consist__slider swiper-slide">
+                  <div class="consist__name">Для щенков</div>
+                  <ul class="consist__list">
+                    <div>
+                      <li class="consist__item item-meat">Мясо – 58%</li>
+                      <li class="consist__item item-bone">Кости – 17%</li>
+                      <li class="consist__item item-veget">Овощи – 7%</li>
+                      <li class="consist__item item-liver">Печень – 7%</li>
+                    </div>
+                    <div>
+                      <li class="consist__item item-by-prod">Субпродукты – 7%</li>
+                      <li class="consist__item item-nuts">Семена/Орехи – 3%</li>
+                      <li class="consist__item item-fruits">Фрукты – 1%</li>
+                    </div>
+                  </ul>
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="trial-sets">
+        <div class="trial-sets__body">
+          <div class="trial-sets__container">
+            <div class="trial-sets__content content">
+              <div class="trial-sets__title title"><span id="ellipse">Пробные</span> наборы от ZOOOV</div>
+              <div class="trial-sets__text text">Порой очень сложно определиться с выбором и хочется попробовать всё и
+                сразу. Ваш хвостик может попробовать разные вкусы и определится что ему больше нравится.</div>
+            </div>
+            <div class="trial-sets__wrapper">
+              <div class="trial-set__swiper swiper">
+                <div class="trial-sets__item-set swiper-wrapper">
+                  <div class="item-set item-set__set-M swiper-slide">
+                    <div class="item-set__body">
+                      <div class="item-set__image">
+                        <img src="@img/3.trial-sets/set.jpg" alt="">
+                        <div class="item-set__category">Для собак до 10кг</div>
+                      </div>
+                      <div class="item-set__set-name">Набор M</div>
+                      <div class="item-set__description">
+                        <div class="item-set__text">
+                          4 шт.-баранина/кролик <br>
+                          3 шт.-говядина/индейка
+                        </div>
+                        <div class="item-set__weight">Вес каждой упаковки - 300г</div>
+                      </div>
+                      <div class="item-set__price">
+                        <div class="item-set__old-price">2 423.</div>
+                        <div class="item-set__new-price">1 680.-</div>
+                      </div>
+                      <a href="#Set_M" class="item-set__button btn btn--w popup-link">Заказать</a>
+                    </div>
+                  </div>
+                  <div class="item-set item-set__set-L swiper-slide">
+                    <div class="item-set__body">
+                      <div class="item-set__image"><img src="@img/3.trial-sets/set_L.jpg" alt="">
+                        <div class="item-set__category">Для собак до 15кг</div>
+                      </div>
+
+                      <div class="item-set__set-name">Набор L</div>
+                      <div class="item-set__description">
+                        <div class="item-set__text">
+                          4 шт.-баранина/кролик <br>
+                          3 шт.-говядина/индейка
+                        </div>
+                        <div class="item-set__weight">Вес каждой упаковки - 500г</div>
+                      </div>
+                      <div class="item-set__price">
+                        <div class="item-set__old-price">3 983.</div>
+                        <div class="item-set__new-price">2770.-</div>
+                      </div>
+                      <a href="#Set_L" class="item-set__button btn btn--w popup-link">Заказать</a>
+                    </div>
+                  </div>
+                  <div class="item-set item-set__set-XL swiper-slide">
+                    <div class="item-set__body">
+                      <div class="item-set__image"><img src="@img/3.trial-sets/set_XL.jpg" alt="">
+                        <div class="item-set__category">Для собак до 20кг</div>
+                      </div>
+
+                      <div class="item-set__set-name">Набор XL</div>
+                      <div class="item-set__description">
+                        <div class="item-set__text">
+                          4 шт.-баранина/кролик <br>
+                          3 шт.-говядина/индейка
+                        </div>
+                        <div class="item-set__weight">Вес каждой упаковки - 700г</div>
+                      </div>
+                      <div class="item-set__price">
+                        <div class="item-set__old-price">5 437.</div>
+                        <div class="item-set__new-price">3 810.-</div>
+                      </div>
+                      <a href="#Set_XL" class="item-set__button btn btn--w popup-link">Заказать</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="swiper-pagination"></div>
+              </div>
+
+              <div class="trial-sets__calculate-feed calculate-feed">
+                <div class="calculate-feed__body">
+                  <div class="calculate-feed__text">Рассчитаем в каком количестве нужно кормить<span class="desktop">
+                      ваш хвостик</span> <span class="mobile">вашего питомца</span> рационами
+                    Zooov</div>
+                  <a href="calculate" class="calculate-feed__button btn btn--r popup-link">Расчитать</a>
+                  <span class="trial-sets__decor"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="ration" class="ration">
+        <div class="ration__body">
+          <div class="ration__container">
+            <div class="ration__content content">
+              <div class="ration__title title"> Рационы <span id="ellipse">ZOOOV</span></div>
+              <div class="ration__text text">
+                Система питания взрослой собаки не подойдет для щенка, поэтому мы создали разные
+                по составу рационы ZOOOV. Вы сможете заказать полноценное питание исходя из возраста, веса и даже
+                вкусовых
+                предпочтений вашего друга. ZOOOV заботится о каждой собаке.
+              </div>
+            </div>
+            <div class="ration__swiper swiper">
+              <div class="ration__item-set swiper-wrapper">
+                <div class="item-set swiper-slide">
+                  <div class="item-set__body">
+                    <div class="item-set__image">
+                      <img src="@img/4.ration/1.jpg" alt="">
+                    </div>
+                    <div class="item-set__set-name">Для взрослых собак</div>
+                    <div class="item-set__subname">Индейка/Говядина</div>
+                    <div class="item-set__description">
+                      <div class="item-set__text">
+                        Подходит для ежедвеного кормления. Богат животными белками и Омега-3.
+                      </div>
+                      <div class="item-set__weight">700г / 500г / 300г / 150г / 100г</div>
+                    </div>
+                    <a href="#ration_set_1" class="item-set__button btn btn--w popup-link">Заказать</a>
+                  </div>
+                </div>
+                <div class="item-set swiper-slide">
+                  <div class="item-set__body">
+                    <div class="item-set__image">
+                      <img src="@img/4.ration/2.jpg" alt="">
+                    </div>
+                    <div class="item-set__set-name">Для взрослых собак</div>
+                    <div class="item-set__subname">Индейка/Говядина</div>
+                    <div class="item-set__description">
+                      <div class="item-set__text">
+                        Подходит для ежедвеного кормления. Богат животными белками и Омега-3.
+                      </div>
+                      <div class="item-set__weight">700г / 500г / 300г / 150г / 100г</div>
+                    </div>
+                    <a href="#ration_set_2" class="item-set__button btn btn--w popup-link">Заказать</a>
+                  </div>
+                </div>
+                <div class="item-set swiper-slide">
+                  <div class="item-set__body">
+                    <div class="item-set__image">
+                      <img src="@img/4.ration/3.jpg" alt="">
+                    </div>
+                    <div class="item-set__set-name">Для взрослых собак</div>
+                    <div class="item-set__subname">Индейка/Говядина</div>
+                    <div class="item-set__description">
+                      <div class="item-set__text">
+                        Подходит для ежедвеного кормления. Богат животными белками и Омега-3.
+                      </div>
+                      <div class="item-set__weight">700г / 500г / 300г / 150г / 100г</div>
+                    </div>
+                    <a href="#ration_set_3" class="item-set__button btn btn--w popup-link">Заказать</a>
+                  </div>
+                </div>
+                <div class="item-set swiper-slide">
+                  <div class="item-set__body">
+                    <div class="item-set__image">
+                      <img src="@img/4.ration/4.jpg" alt="">
+                    </div>
+                    <div class="item-set__set-name">Для взрослых собак</div>
+                    <div class="item-set__subname">Индейка/Говядина</div>
+                    <div class="item-set__description">
+                      <div class="item-set__text">
+                        Подходит для ежедвеного кормления. Богат животными белками и Омега-3.
+                      </div>
+                      <div class="item-set__weight">700г / 500г / 300г / 150г / 100г</div>
+                    </div>
+                    <a href="#ration_set_4" class="item-set__button btn btn--w popup-link">Заказать</a>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="recommendations">
+        <div class="recommendations__body">
+          <div class="recommendations__container">
+            <div class="recommendations__title title"> Рекомендованные нормы кормления</div>
+            <div class="recommendations__swiper swiper">
+              <div class="swiper-pagination">
+              </div>
+              <div class="recommendations__content swiper-wrapper">
+                <div data-name="Для взрослых" class="recommendations__adult recommendations__slider swiper-slide">
+                  <div class="recommendations__title--slider title">ДЛЯ ВЗРОСЛЫХ СОБАК</div>
+                  <div class="recommendations__subtitle subtitle">от 1 года</div>
+                  <div class="recommendations__table-wrapper">
+                    <table class="recommendations__table table">
+                      <thead>
+                        <tr>
+                          <th>Вес собаки</th>
+                          <th>Суточная норма</th>
+                        </tr>
+                      </thead>
+
+                      <tr>
+                        <td>5кг</td>
+                        <td>100 - 150гр</td>
+                      </tr>
+                      <tr>
+                        <td>7кг</td>
+                        <td>140 - 210гр</td>
+                      </tr>
+                      <tr>
+                        <td>10кг</td>
+                        <td>200 - 300гр</td>
+                      </tr>
+                      <tr>
+                        <td>12кг</td>
+                        <td>240 - 360гр</td>
+                      </tr>
+                    </table>
+                    <table class="recommendations__table table">
+                      <thead class="desktop">
+                        <tr>
+                          <th>Вес собаки</th>
+                          <th>Суточная норма</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <td>15кг</td>
+                        <td>300 - 450гр</td>
+                        </tr>
+                        <tr>
+                          <td>17кг</td>
+                          <td>340 - 510гр</td>
+                        </tr>
+                        <tr>
+                          <td>20кг</td>
+                          <td>400 - 600гр</td>
+                        </tr>
+                        <tr>
+                          <td>25кг</td>
+                          <td>500 - 750гр</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="recommendations__text">
+                    <span>Суточная норма кормления</span> составляет <span>2-3%*</span> от <span>идеального</span> веса
+                    собаки.
+                  </div>
+                </div>
+
+                <div data-name="Для щенков" class="recommendations__pappy recommendations__slider swiper-slide">
+                  <div class="recommendations__title--slider title">ДЛЯ Щенков</div>
+                  <div class="recommendations__subtitle subtitle">от 1 года</div>
+
+                  <div class="recommendations__table-wrapper">
+                    <table class="recommendations__table table">
+                      <thead>
+                        <tr>
+                          <th>Вес собаки</th>
+                          <th>Суточная норма</th>
+                        </tr>
+                      </thead>
+
+                      <tr>
+                        <td>2кг</td>
+                        <td>100гр</td>
+                      </tr>
+                      <tr>
+                        <td>5кг</td>
+                        <td>250гр</td>
+                      </tr>
+                      <tr>
+                        <td>7кг</td>
+                        <td>350гр</td>
+                      </tr>
+                      <tr>
+                        <td>10кг</td>
+                        <td>500гр</td>
+                      </tr>
+                    </table>
+                    <table class="recommendations__table table">
+                      <thead class="desktop">
+                        <tr>
+                          <th>Вес собаки</th>
+                          <th>Суточная норма</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>12кг</td>
+                          <td>600гр</td>
+                        </tr>
+                        <tr>
+                          <td>15кг</td>
+                          <td>750гр</td>
+                        </tr>
+                        <tr>
+                          <td>17кг</td>
+                          <td>850гр</td>
+                        </tr>
+                        <tr>
+                          <td>20кг</td>
+                          <td>1000гр</td>
+                        </tr>
+                      <tbody>
+                    </table>
+                  </div>
+                  <div class="recommendations__text">
+                    <span>Суточная норма кормления</span> составляет <span>5%*</span> от <span>идеального</span> веса
+                    собаки.
+                  </div>
+
+                </div>
+              </div>
+              <div class="recommendations__note">
+                *Общие рекомендации. Некоторым собакам нужен бОльший % в зависимости от их активности и индивидуальных
+                особенностей организма.
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+      <section id="why-zoov" class="why-zoov">
+        <div class="why-zoov__body">
+          <div class="why-zoov__container">
+            <div class="why-zoov__title title">Почему <span class="three-line">ZOOOV</span></div>
+            <div class="why-zoov__row row-block">
+              <div class="row-block__body">
+                <div class="row-block__icon"><img src="@img/6.why-zoov/1.svg" alt=""></div>
+                <div class="row-block__name">Натурально</div>
+                <div class="row-block__text">Все продукты тщательно отбираем
+                  у проверенных поставщиков.</div>
+              </div>
+              <div class="row-block__body">
+                <div class="row-block__icon"><img src="@img/6.why-zoov/2.svg" alt=""></div>
+                <div class="row-block__name">Здорово</div>
+                <div class="row-block__text">Система питания, которая
+                  продлевает жизнь вашего питомца.</div>
+              </div>
+              <div class="row-block__body">
+                <div class="row-block__icon"><img src="@img/6.why-zoov/3.svg" alt=""></div>
+                <div class="row-block__name">Быстро</div>
+                <div class="row-block__text">Сделайте заказ на сайте и с вами свяжется наш менеджер для уточнения
+                  деталей.</div>
+              </div>
+              <div class="row-block__body">
+                <div class="row-block__icon  icon-before"><img src="@img/6.why-zoov/4.svg" alt=""></div>
+                <div class="row-block__name">Удобно</div>
+                <div class="row-block__text">Достаточно разморозить порцию ZOOOV, удалить отрывную крышку
+                  с лотка и обед для вашего питомца готов.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="love-zoov">
+        <div class="love-zoov__body">
+          <div class="love-zoov__container">
+            <div class="love-zoov__content">
+              <div class="love-zoov__text">
+                <div class="love-zoov__title title">С заботой и любовь от <span class="three-line">Zooov</span></div>
+                <p>Мы сами владельцы собак и знаем, как важно правильное и качественное питание для долгой и счастливой
+                  жизни вашего питомца. Для нас ZOOOV это не просто бизнес, это наш вклад в повышение качества жизни
+                  всех
+                  собак.</p>
+
+                <p>Мы знаем, как правильно подобрать и переработать мясо, субпродукты, овощи и фрукты, чтобы питание
+                  вашего питомца было максимально сбалансированным и полезным. </p>
+
+                <p>Обычного сырого мяса из магазина будет недостаточно для полноценного питания собаки. ZOOOV — экономия
+                  времени, вам не придется искать необходимые составляющие для рациона.</p>
+
+                <p> Мы сами отбираем мясо, кости, легкие, печень и другие говяжьи, кроличьи и птичьи субпродукты у
+                  проверенных поставщиков. Закупаем органические овощи и используем разнообразные масла, такие как
+                  конопляное и льняное.</p>
+
+                <p>ZOOOV — это удобно, мы доставляем готовый рацион на две недели уже смешанным, расфасованным и
+                  упакованным в порционные лотки,готовыми к заморозке. За два часа до кормления достаточно переместить
+                  контейнер из морозилки в холодильник для ПРАВИЛЬНОЙ разморозки.</p>
+              </div>
+              <div class="love-zoov__image-block image-block">
+                <div class="image-block__body">
+                  <picture class="image-block__img-top">
+                    <source media='(max-width: 425px)' srcset='@img/7.love-zoov/mobile_top@1x.jpg'>
+                    <img src="@img/7.love-zoov/top@1x.jpg" srcset='' alt=''>
+                  </picture>
+
+                  <picture class="image-block__img-bot">
+                    <source media='(max-width: 375px)' srcset='@img/7.love-zoov/mobile_bot@1x.jpg'>
+                    <source media='(min-width: 425px)' srcset='@img/7.love-zoov/bot@2x.jpg'>
+                    <img src="@img/7.love-zoov/bot@1x.jpg" srcset='' alt=''>
+                  </picture>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="get-zoov" class="get-zoov">
+        <div class="get-zoov__body">
+          <div class="get-zoov__container">
+            <div class="get-zoov__title title">Как получить ZOOOV?</div>
+            <div class="get-zoov__row row-block">
+              <div class="row-block__body">
+                <div class="row-block__icon"><img src="@img/8.get-zoov/1.svg" alt=""></div>
+                <div class="row-block__name">Закажите рацион</div>
+                <div class="row-block__text">Выберите рацион для своей собаки. Если не знаете сколько
+                  и какой – <a href="">мы подскажем.</a></div>
+              </div>
+              <div class="row-block__body">
+                <div class="row-block__icon"><img src="@img/8.get-zoov/2.svg" alt=""></div>
+                <div class="row-block__name">Подтвердите заказ
+                </div>
+                <div class="row-block__text">Мы свяжемся с вами для подтверждения заказа
+                  и уточнения деталей.</div>
+              </div>
+              <div class="row-block__body">
+                <div class="row-block__icon"><img src="@img/8.get-zoov/3.svg" alt=""></div>
+                <div class="row-block__name">Ожидайте доставки
+                </div>
+                <div class="row-block__text">Привозим заказ на следующий день. По СПб – 350₽, при заказе от
+                  3 500₽ – бесплатно. Лен. область – по договоренности.</div>
+              </div>
+              <div class="row-block__body">
+                <div class="row-block__icon  icon-before"><img src="@img/8.get-zoov/4.svg" alt=""></div>
+                <div class="row-block__name">Радуйте своего питомца
+                </div>
+                <div class="row-block__text">Просто разморозьте рацион: при комнатной температуре – 3 часа, в
+                  холодильнике – 12-15 часов.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="QA" class="QA">
+        <div class="QA__body">
+          <div class="QA__container">
+            <div class="QA__title title">Частые вопросы</div>
+            <div class="QA__spoilers spoilers--block">
+              <div class="spoilers--block__body">
+                <div class="spoilers--block__row">
+                  <div class="spoilers--block__question">
+                    <details class="spoilers--block__title">
+                      <summary>
+                        <div class="spoilers--block__quest">Не опасны ли бактерии, которые находятся в сыром мясе?</div>
+                        <div class="spoilers--block__icon icon-spoiler">
+                          <span class="icon-spoiler__line"></span>
+                        </div>
+                      </summary>
+                      <div class="spoilers--block__answer">У здоровых собак отличная иммунная система, готовая ко всем
+                        видам бактерий. Рацион BARF как раз укрепит иммунитет вашей собаки и защитит ее от влияния
+                        бактерий, которые находятся на улице или даже в вашем доме.
+                      </div>
+                    </details>
+                  </div>
+                </div>
+                <div class="spoilers--block__row">
+                  <div class="spoilers--block__question">
+                    <details class="spoilers--block__title">
+                      <summary>
+                        <div class="spoilers--block__quest">Надо ли давать дополнительно витамины к рациону BARF?</div>
+                        <div class="spoilers--block__icon icon-spoiler">
+                          <span class="icon-spoiler__line"></span>
+                        </div>
+                      </summary>
+                      <div class="spoilers--block__answer">У здоровых собак отличная иммунная система, готовая ко всем
+                        видам бактерий. Рацион BARF как раз укрепит иммунитет вашей собаки и защитит ее от влияния
+                        бактерий, которые находятся на улице или даже в вашем доме.
+                      </div>
+                    </details>
+                  </div>
+                </div>
+                <div class="spoilers--block__row">
+                  <div class="spoilers--block__question">
+                    <details class="spoilers--block__title">
+                      <summary>
+                        <div class="spoilers--block__qest">А если моя собака уже давно питается промышленным кормом и у
+                          нее нет проблем со здоровьем?</div>
+                        <div class="spoilers--block__icon icon-spoiler">
+                          <span class="icon-spoiler__line"></span>
+                        </div>
+                      </summary>
+                      <div class="spoilers--block__answer">У здоровых собак отличная иммунная система, готовая ко всем
+                        видам бактерий. Рацион BARF как раз укрепит иммунитет вашей собаки и защитит ее от влияния
+                        бактерий, которые находятся на улице или даже в вашем доме.
+                      </div>
+                    </details>
+
+                  </div>
+                </div>
+                <div class="spoilers--block__row">
+                  <div class="spoilers--block__question">
+                    <details class="spoilers--block__title">
+                      <summary>
+                        <div class="spoilers--block__quest">Можно ли смешивать натуральный корм и корм промышленного
+                          производства?</div>
+                        <div class="spoilers--block__icon icon-spoiler">
+                          <span class="icon-spoiler__line"></span>
+                        </div>
+                      </summary>
+                      <div class="spoilers--block__answer">У здоровых собак отличная иммунная система, готовая ко всем
+                        видам бактерий. Рацион BARF как раз укрепит иммунитет вашей собаки и защитит ее от влияния
+                        бактерий, которые находятся на улице или даже в вашем доме.
+                      </div>
+                    </details>
+
+                  </div>
+                </div>
+                <div class="spoilers--block__row">
+                  <div class="spoilers--block__question">
+                    <details class="spoilers--block__title">
+                      <summary>
+                        <div class="spoilers--block__quest">Могу ля и я сам составить для своей собаки рацион по системе
+                          BARF?</div>
+                        <div class="spoilers--block__icon icon-spoiler">
+                          <span class="icon-spoiler__line"></span>
+                        </div>
+                      </summary>
+                      <div class="spoilers--block__answer">У здоровых собак отличная иммунная система, готовая ко всем
+                        видам бактерий. Рацион BARF как раз укрепит иммунитет вашей собаки и защитит ее от влияния
+                        бактерий, которые находятся на улице или даже в вашем доме.
+                      </div>
+                    </details>
+
+                  </div>
+                </div>
+                <div class="spoilers--block__row">
+                  <div class="spoilers--block__question">
+                    <details class="spoilers--block__title">
+                      <summary>
+                        <div class="spoilers--block__quest">Как готовить рацион ZOOOV?</div>
+                        <div class="spoilers--block__icon icon-spoiler">
+                          <span class="icon-spoiler__line"></span>
+                        </div>
+                      </summary>
+                      <div class="spoilers--block__answer">У здоровых собак отличная иммунная система, готовая ко всем
+                        видам бактерий. Рацион BARF как раз укрепит иммунитет вашей собаки и защитит ее от влияния
+                        бактерий, которые находятся на улице или даже в вашем доме.
+                      </div>
+                    </details>
+
+                  </div>
+                </div>
+                <div class="spoilers--block__row">
+                  <div class="spoilers--block__question">
+                    <details class="spoilers--block__title">
+                      <summary>
+                        <div class="spoilers--block__quest">При переходе на рацион ZOOOV у собаки начались проблемы с
+                          ЖКТ. Это нормально?</div>
+                        <div class="spoilers--block__icon icon-spoiler">
+                          <span class="icon-spoiler__line"></span>
+                        </div>
+                      </summary>
+                      <div class="spoilers--block__answer">У здоровых собак отличная иммунная система, готовая ко всем
+                        видам бактерий. Рацион BARF как раз укрепит иммунитет вашей собаки и защитит ее от влияния
+                        бактерий, которые находятся на улице или даже в вашем доме.
+                      </div>
+                    </details>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+      </section>
+      <section id="contacts" class="contacts">
+        <div class="contacts__body">
+          <div class="contacts__container">
+            <!-- Блок с контактами -->
+            <div class="contacts__block-text text--block">
+              <div class="text--block__body">
+                <div class="text--block__title title">Контакты</div>
+                <div class="text--block__subtitle subtitle">Вы всегда можете с нами связаться
+                  по телефону или в мессенджерах</div>
+                <div class="text--block__number">+7 (900)000-00-00</div>
+                <div class="text--block__social-set">
+                  <a class="text--block__whatsapp social" href="">Написать в WhatsApp</a>
+                  <a class="text--block__telegram social" href="">Написать в Telegram</a>
+                </div>
+                <div class="text--block__text-subscribe">Подписывайтесь на наш <a class="text--block__instagram"
+                    href="">Instagram</a>
+                  и следите за новостями</div>
+              </div>
+            </div>
+            <form action="">
+              <!-- Блок с формой -->
+              <div class="contacts__block-form ">
+                <div class="form__group--text">
+                  <h2 class="form__title">Остались вопросы?</h2>
+                  <div class="form__subtitle">Напишите нам и мы обязательно подробно на них ответим.</div>
+                </div>
+                <div class="form__body">
+                  <div class="form__row">
+                    <div class="form__group">
+                      <input class="form__input" placeholder=" " type="text" name="" id="">
+                      <label class="form__label" for="">Имя</label>
+                    </div>
+
+                    <div class="form__group">
+                      <input class="form__input" placeholder=" " type="text" name="" id="">
+                      <label class="form__label" for="">Email</label>
+                    </div>
+                  </div>
+
+                  <div class="form__row">
+                    <input class="form__input textarea--form" placeholder=" ">
+                    <label class="form__label" for="">Ваш вопрос...</label>
+                  </div>
+
+                  <div class="form__row">
+                    <div class="form__group">
+                      <label class="form__label--checkbox checkboxmark--body" name="" for="checkboxmark">
+                        <input class="visually-hidden form__input--checkbox checkboxmark" type="checkbox" name="checkboxmark"
+                          id="checkboxmark">
+                        <span class="check__box"></span>
+                        Даю согласие на обработку персональных данных
+                      </label>
+                    </div>
+                    <button type="submit" class="form__button btn btn--w">Отправить</button>
+                  </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+    @@include('html/popups.html', {})
+    @@include('html/footer.html', {})
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="js/app.min.js"></script>
+  <!--<script type="module">
+    import Swiper from 'swiper/swiper-bundle.esm.js';
+    import 'swiper/swiper-bundle.css';
+    </script>-->
+</body>
+
+</html>

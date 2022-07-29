@@ -1,0 +1,648 @@
+.popup {
+  //ОБЩИЕ СТИЛИ
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
+  z-index: 100000000;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.8s ease 0s;
+  &__body {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: rem(30) rem(10);
+  }
+  &__content {
+    width: 300px;
+    background: white;
+    padding: rem(48) rem(21) rem(38) rem(27);
+    position: relative;
+    @media (min-width: $tablet) {
+      width: 900px;
+      padding: rem(56) rem(74) rem(48) rem(37);
+    }
+  }
+
+  // СТИЛИ ДЛЯ ФОРМ
+  form .form__row {
+    margin-bottom: rem(0);
+  }
+  .form {
+    &__body {
+    }
+    &__row {
+      display: block;
+      &--last {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+        margin-top: rem(36);
+      }
+    }
+    &__group {
+    }
+    &__input {
+      color: black;
+      background: #f4f5f5;
+    }
+    &__label {
+      z-index: 10000000000000000000000;
+      color: rgba($color: #000000, $alpha: 0.6);
+    }
+    &__label--checkbox {
+      color: rgba($color: #000000, $alpha: 0.6);
+      font-size: rem(12);
+      line-height: 16px;
+      @media (min-width: $tablet) {
+        white-space: nowrap;
+      }
+    }
+    &__input--checkbox {
+    }
+    &__button {
+    }
+  }
+  .form__input:focus ~ .form__label,
+  .form__input:not(:placeholder-shown) ~ .form__label {
+    color: rgba($color: #000000, $alpha: 0.4);
+  }
+
+  .check {
+    &__box {
+      width: 16px;
+      height: 16px;
+      margin-top: 0;
+    }
+  }
+  .btn {
+    padding: rem(13) rem(32);
+  }
+  .btn--w {
+  }
+
+  //СТИЛИ ДЛЯ СПОЙЛЕРОВ
+  details {
+    display: inline-block;
+  }
+  summary {
+    position: relative;
+  }
+  summary::after,
+  summary::before {
+    transition: all 0.3s ease 0s;
+    top: 7px;
+  }
+  summary:after {
+    content: url(../images/Mobile_arrow.svg);
+    position: absolute;
+    top: 0;
+    right: -20px;
+    border-radius: 2px;
+    transition: all 0.3s ease 0s;
+  }
+
+  summary:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    right: -12.5px;
+    width: 0;
+    height: 0;
+    transform: rotate(45deg);
+  }
+
+  details[open] > summary::after {
+    transform: rotate(-180deg);
+  }
+  details[open] {
+    height: 150px;
+  }
+  .spoilers--block {
+    display: inline-block;
+    font-size: rem(16);
+
+    &__quest {
+      font-weight: 600;
+      text-decoration: underline dotted rgb(175, 175, 175) 2px;
+      text-underline-position: under;
+    }
+    &__icon {
+    }
+    &__answer {
+      margin-top: rem(11);
+      font-size: 13px;
+      color: $color-text-grey;
+    }
+  }
+  .spoilers--wrapper {
+    position: relative;
+    width: 100%;
+  }
+  // количество штук справа
+  .spoiler-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-weight: 600;
+    //margin-left: 22%;
+  }
+  .icon-spoiler {
+    &__line {
+    }
+  }
+
+  // КАРТОЧКИ РАЦИОНОВ
+  .item-set {
+    &__set-M {
+    }
+    &__body {
+      @media (min-width: $tablet) {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: rem(37);
+      }
+      padding: 0;
+    }
+    &__set-name {
+      margin-bottom: rem(12);
+      font-size: rem(20);
+    }
+    &__image {
+      width: 100%;
+      height: rem(355);
+      background-repeat: no-repeat;
+      margin-bottom: rem(12);
+      img {
+        width: 100%;
+      }
+      @media (min-width: $tablet) {
+        flex: 0 0 50%;
+        height: rem(690);
+      }
+    }
+    &__category {
+    }
+    &__weight {
+      margin-bottom: rem(16);
+    }
+    &__description {
+      position: relative;
+      margin-bottom: rem(24);
+      @media (min-width: $tablet) {
+        margin-bottom: rem(0);
+      }
+    }
+    &__spoilers--block {
+      margin-bottom: rem(12);
+    }
+    &__price {
+      text-align: center;
+      @media (min-width: $tablet) {
+        margin-bottom: rem(0);
+        width: rem(70);
+      }
+    }
+    &__old-price {
+      font-size: rem(14);
+    }
+    &__new-price {
+      font-size: rem(20);
+      @media (min-width: $tablet) {
+        padding: 0;
+      }
+    }
+
+    .divider {
+      @media (min-width: $tablet) {
+        display: flex;
+        flex-flow: column;
+        flex-grow: 1;
+        justify-content: space-between;
+      }
+    }
+  }
+  //РАССИТАТЬ РАЦИОН
+  .calculate {
+    &__body {
+    }
+    &__title {
+      color: $color-main-red;
+      margin-bottom: rem(16);
+    }
+    &__text {
+      margin-bottom: rem(42);
+    }
+    &__whatsApp,
+    &__telegram {
+      color: $color-main-red;
+      text-decoration: underline $color-main-red;
+      text-underline-position: under;
+    }
+    .title {
+    }
+    .text {
+    }
+    .form {
+      &__group {
+      }
+      &__input {
+      }
+      &__label {
+        max-width: 100%;
+      }
+      .textarea {
+        padding: 15px 10px 100px 10px;
+      }
+      &__label--radio {
+        width: 100%;
+        padding-left: 30px;
+        @media (min-width: $tablet) {
+          font-size: rem(16);
+        }
+      }
+      &__input----radio {
+      }
+      &__button {
+        max-width: 100%;
+      }
+    }
+
+    .checkboxmark--body {
+    }
+    .checkboxmark {
+    }
+    .check {
+      &__box {
+      }
+    }
+    .btn {
+    }
+    .btn--r {
+    }
+  }
+}
+.popup.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.icon-close {
+  position: absolute;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  top: 5px;
+  right: 5px;
+}
+
+.close {
+  &::before,
+  &::after {
+    content: "";
+    transition: all 0.3s ease 0s;
+    right: 20%;
+    position: absolute;
+    width: 70%;
+    height: 2px;
+  }
+  &::before {
+    top: calc(50% - rem(1));
+    transform: rotate(-45deg);
+    background-color: rgb(0, 0, 0);
+  }
+  &::after {
+    bottom: calc(50% - rem(1));
+    transform: rotate(45deg);
+    background-color: rgb(0, 0, 0);
+  }
+}
+
+.thanks {
+  &__body {
+  }
+  &__title {
+  }
+  &__text {
+  }
+}
+
+.ration_set {
+  .gallery {
+    flex: 0 0 50%;
+    display: grid;
+    width: 100%;
+    height: 100%;
+    margin-bottom: rem(24);
+    //height: rem(100);
+    //grid-template-columns: repeat(4, 64px);
+    @media (min-width: $pc) {
+      grid-template-columns: repeat(4, 64px) 64px;
+      grid-template-rows: 420px 64px;
+      gap: 10px;
+    }
+    grid-template-columns: repeat(3, 64px) 1fr;
+    grid-template-rows: 420px 64px;
+    gap: 10px;
+
+    > img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    > .preview {
+      grid-column: 1/-1;
+      //grid-row: 1/5;
+    }
+  }
+
+  &_set {
+  }
+  .item-set {
+    &__set-ration-1 {
+    }
+    &__body {
+    }
+    &__set-name {
+      margin-bottom: rem(4);
+    }
+    &__set-subname {
+      @extend .item-set__weight;
+      @media (min-width: $tablet) {
+        margin-bottom: rem(16);
+      }
+    }
+    &__popups-item-set {
+      @media (min-width: $tablet) {
+        display: flex;
+        flex-flow: column;
+        gap: rem(18);
+      }
+    }
+    &__swiper-wrapper {
+    }
+    &__slide {
+    }
+    &__image {
+      @media (min-width: $tablet) {
+        height: rem(500);
+      }
+    }
+    &__content {
+    }
+    &__description {
+      @media (min-width: $tablet) {
+        margin-bottom: rem(45);
+      }
+    }
+    &__composition {
+      span {
+        font-weight: 600;
+      }
+      margin-bottom: rem(52);
+    }
+    &__value {
+      @extend .item-set__composition;
+    }
+    &__weight {
+    }
+  }
+  //set__swiper
+
+  .popup-item-set__swiper {
+    .item-set {
+      &__swiper-wrapper {
+      }
+      &__slide {
+      }
+      &__image {
+      }
+    }
+    .swiper-wrapper {
+    }
+    .swiper-slide {
+    }
+    .ibg {
+    }
+  }
+  //set__thumbs
+  .popup-item-set__thumbs {
+    @media (min-width: $tablet) {
+      width: 50%;
+      margin: 0;
+    }
+    height: 100%;
+    .swiper-slide,
+    .swiper-slide-active,
+    .swiper-slide-visible {
+      opacity: 0.5;
+    }
+    .swiper-slide-thumb-active {
+      opacity: 1;
+    }
+    .item-set {
+      &__swiper-wrapper {
+      }
+      &__slide {
+      }
+      &__image {
+        img {
+          height: rem(64);
+          width: rem(64);
+        }
+        overflow: hidden;
+        height: 100%;
+        margin-bottom: rem(24);
+      }
+    }
+    .swiper-wrapper {
+    }
+    .swiper-slide {
+    }
+    .ibg {
+    }
+  }
+
+  .swiper {
+  }
+  .swiper-wrapper {
+  }
+  .swiper-slide {
+  }
+  .ibg {
+  }
+  .divider {
+  }
+  .item-set--textrow {
+  }
+  .item-set--set-ration-1 {
+  }
+  .form {
+    &__button {
+    }
+  }
+  .btn {
+  }
+  .btn--w {
+  }
+  .popup-link {
+  }
+}
+
+.calculate .popup__content {
+  padding: rem(72) rem(24) rem(40) rem(24);
+  @media (min-width: $tablet) {
+    width: rem(580);
+    padding: rem(56) rem(56) rem(32) rem(56);
+  }
+}
+
+.form {
+  flex: 0 0 30%;
+  .quantity {
+    position: relative;
+  }
+  .minus-btn,
+  .plus-btn {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    top: 0;
+    background-color: transparent;
+    border-radius: 6px;
+    border: none;
+    z-index: 10000;
+    cursor: pointer;
+    img {
+      pointer-events: none;
+    }
+  }
+  .minus-btn {
+    right: 0;
+  }
+  .plus-btn {
+    left: 0;
+  }
+  .quantity {
+    .form__input {
+      text-align: center;
+    }
+  }
+  .quantity {
+    @media (min-width:$tablet){
+      width: 50%;
+      float: right;
+      margin-bottom: rem(30);
+    }
+  }
+  .popup {
+    &__body {
+    }
+    &__content {
+    }
+  }
+  .desk {
+    display: none;
+    @media (min-width: $tablet) {
+      display: inline;
+      line-height: 48px;
+    }
+  }
+  .open {
+  }
+  .item-set__set-name {
+  }
+  .item-set__image {
+    @media (min-width:$tablet){
+       height: rem(500); 
+    }
+  }
+  .item-set__set-subname {
+    @media (min-width: $tablet) {
+      margin-bottom: rem(16);
+    }
+  }
+  select.form__input {
+    padding-top: 0;
+  }
+  .form {
+    &__group {
+    }
+    &__input {
+      position: relative;
+      border-radius: 5px;
+    }
+    &__label {
+    }
+    &__row {
+    }
+    &__label--checkbox {
+      @media (min-width:$tablet){
+         font-size: rem(14); 
+         margin-bottom: rem(32);
+      }
+    }
+    &__input--checkbox {
+    }
+    &__row--last {
+      margin: 0;
+    }
+    &__row--set {
+      &_XL {
+      }
+    }
+    &__button {
+      margin: 0;
+    }
+  }
+  .icon-close {
+  }
+  .close-popup {
+  }
+  .close {
+  }
+  .item-set {
+    &__body {
+    }
+    &__set-name {
+    }
+    &__set-subname {
+    }
+    &__image {
+      flex: 0 0 45%;
+    }
+    &__price {
+    }
+    &__old-price {
+    }
+    &__new-price {
+    }
+  }
+  .ibg {
+  }
+  .quantity {
+  }
+  .plus-btn {
+  }
+  .minus-btn {
+  }
+  .checkboxmark--body {
+  }
+  .checkboxmark {
+  }
+  .check {
+    &__box {
+    }
+  }
+  .btn {
+  }
+  .btn--w {
+  }
+}

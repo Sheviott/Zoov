@@ -1,0 +1,27 @@
+.footer__body {
+  background-color: #69120E;
+  color: #965956;
+  padding: 24px 0;
+  font-size: rem(12);
+}
+@media (min-width: 768px) {
+  .footer__list {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+  }
+}
+.footer__item {
+  color: #965956;
+  display: block;
+  margin: 0 0 8px 0;
+}
+.footer__list > .footer__item, .footer__item {
+  margin: 0 0 24px 0;
+  flex: 0 0 60%;
+}
+@media (min-width: 768px) {
+  .footer__list > .footer__item, .footer__item {
+    margin: 0;
+  }
+}
