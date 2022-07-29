@@ -185,26 +185,10 @@ var galleryTop = new Swiper('.popup-item-set__swiper', {
 
 const gallery = document.querySelector('.gallery');
 const preview = document.querySelector('.gallery > .preview');
-//gallery.addEventListener('click', ({ target }) => {
-//  if (!target.classList.contains('preview'))
-//    [preview.src, target.src] = [target.src, preview.src];
-//});
-
-//if (gallery.length > 0) {
-//  for (let index = 0; index < gallery.length; index++) {
-//    const galleryItem = gallery[index];
-   
-//  };
-//  //if (preview.length > 0) {
-//  //  for (let index = 0; index < preview.length; index++) {
-//  //    const previewItem = preview[index];
-//  //  }
-//  //};
-//galleryItem.addEventListener('click', ({ target }) => {
-//  if (!target.classList.contains('preview'))
-//    [previewItem.src, target.src] = [target.src, previewItem.src];
-//});
-//}
+    gallery.addEventListener('click', ({ target }) => {
+      if (!target.classList.contains('preview') && target.getAttribute('src'))
+        [preview.src, target.src] = [target.src, preview.src];
+    });
 
  
 

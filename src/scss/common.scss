@@ -79,6 +79,7 @@ input[type="radio"] {
   width: 0;
   height: 0;
   border: 0;
+  @extend .visually-hidden;
 }
 .check__box,
 .radio {

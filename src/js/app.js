@@ -14,7 +14,7 @@ document.addEventListener('click', function (e) {
   } else if (e.target.classList.contains("minus-btn") & e.target.parentElement.querySelector("input").value != 1) {
     --e.target.parentElement.querySelector("input").value;
   }
-})
+});
 
 flsFunctions.isWebp();
 

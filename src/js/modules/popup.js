@@ -20,6 +20,45 @@ if (popupLinks.length > 0) {
     });
   }
 }
+
+function copyDate() {
+let itemSetImg = document.querySelectorAll('.ration__item-set img'); // кнопка в попапе
+ if (itemSetImg.length) {
+
+ }
+}
+
+
+// функция переноса контента в попап
+const btn = document.querySelectorAll('.ration .item-set__button'); //кнопка вызова попапа
+const imagePopup = document.querySelector('.ration_set--popup .preview') //изображение товара в вызываемом попапе с пустым атрибутом src
+const imageForm = document.querySelector('.ration_set--form img') //изображение товара в вызываемом попапе с пустым атрибутом src
+
+//const setName = document.querySelector('.ration .item-set__set-name') // наименование товара со страницы
+//const subТame = document.querySelector('.ration .item-set__subname') //контентт со страницы
+
+if (btn.length > 0) {
+  for (let index = 0; index < btn.length; index++) {
+    const el = btn[index];
+    el.addEventListener('click', function (e) { // при клике 
+      let img = el.closest('.item-set__body').firstElementChild.firstElementChild; // обращаемся к тегу img в вызываемом попапе
+      imagePopup.src = img.src ; // копируем изображение со страницы сайта в попап
+      imageForm.src = img.src ; // копируем изображение со страницы сайта в форму попапа
+      let bodyItem = this.closest('.item-set__body'); // обращаемся к карточке товара, на который кликнули
+      let setName = bodyItem.querySelector('.item-set__set-name') //обращаемся к названию товара в этой карточке
+      let subName = bodyItem.querySelector('.item-set__subname')//обращаемся к контенту товара в этой карточке
+      let setNamePopup = document.querySelector('.ration_set--popup .item-set__set-name') //обращаемся к контенту товара в попапе
+      let subNamePopup = document.querySelector('.ration_set--popup .item-set__set-subname')//обращаемся к контенту товара в попапе
+      let setNameForm = document.querySelector('.ration_set--form .item-set__set-name') //обращаемся к контенту товара в форме попапе
+      let subNameForm = document.querySelector('.ration_set--form .item-set__set-subname')//обращаемся к контенту товара в форме попапе
+      setNamePopup.innerHTML = setName.innerHTML; // копирование 
+      subNamePopup.innerHTML = subName.innerHTML; // копирование
+      setNameForm.innerHTML = setName.innerHTML; // копирование 
+      subNameForm.innerHTML = subName.innerHTML; // копирование
+    });
+  }
+}
+
 // ЗАКРЫВАЕМ ПОПАП
 const popupCloseIcon = document.querySelectorAll('.close-popup');
 if (popupCloseIcon.length > 0) {

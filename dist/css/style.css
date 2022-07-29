@@ -93,7 +93,8 @@ img {
   object-fit: cover;
 }
 
-.visually-hidden {
+.visually-hidden, input[type=checkbox],
+input[type=radio] {
   position: absolute;
   width: 1px;
   height: 1px;
