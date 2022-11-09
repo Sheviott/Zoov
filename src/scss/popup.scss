@@ -6,7 +6,7 @@
   background: rgba(0, 0, 0, 0.8);
   top: 0;
   left: 0;
-  z-index: 100000000;
+  z-index: 100000;
   overflow-y: scroll;
   overflow-x: hidden;
   opacity: 0;
@@ -26,7 +26,7 @@
     position: relative;
     @media (min-width: $tablet) {
       width: 900px;
-      padding: rem(56) rem(74) rem(48) rem(37);
+      padding: rem(56) rem(74) rem(48) rem(32);
     }
   }
 
@@ -144,6 +144,7 @@
 
   // КАРТОЧКИ РАЦИОНОВ
   .item-set {
+    // height: ;
     &__body {
       @media (min-width: $tablet) {
         display: flex;
@@ -162,11 +163,15 @@
       background-repeat: no-repeat;
       margin-bottom: rem(12);
       img {
+        object-fit: contain;
         width: 100%;
       }
       @media (min-width: $tablet) {
-        flex: 0 0 50%;
-        height: rem(690);
+        flex: 1 0 45%;
+        min-height: rem(525);
+        height: auto;
+        background-position: top;
+
       }
     }
     &__weight {
@@ -205,6 +210,7 @@
         flex-flow: column;
         flex-grow: 1;
         justify-content: space-between;
+        width: 50%;
       }
     }
   }

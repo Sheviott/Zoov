@@ -510,7 +510,7 @@ summary {
   background: rgba(0, 0, 0, 0.8);
   top: 0;
   left: 0;
-  z-index: 100000000;
+  z-index: 100000;
   overflow-y: scroll;
   overflow-x: hidden;
   opacity: 0;
@@ -533,7 +533,7 @@ summary {
 @media (min-width: 767.99px) {
   .popup__content {
     width: 900px;
-    padding: 3.5rem 4.625rem 3rem 2.3125rem;
+    padding: 3.5rem 4.625rem 3rem 2rem;
   }
 }
 .popup form .form__row {
@@ -657,12 +657,15 @@ summary {
   margin-bottom: 0.75rem;
 }
 .popup .item-set__image img {
+  object-fit: contain;
   width: 100%;
 }
 @media (min-width: 767.99px) {
   .popup .item-set__image {
-    flex: 0 0 50%;
-    height: 43.125rem;
+    flex: 1 0 45%;
+    min-height: 32.8125rem;
+    height: auto;
+    background-position: top;
   }
 }
 .popup .item-set__weight, .popup .ration_set .item-set__set-subname, .ration_set .popup .item-set__set-subname {
@@ -706,6 +709,7 @@ summary {
     flex-flow: column;
     flex-grow: 1;
     justify-content: space-between;
+    width: 50%;
   }
 }
 .popup .calculate__title {
@@ -947,7 +951,7 @@ summary {
 }
 
 .header {
-  z-index: 1000000;
+  z-index: 10;
   position: absolute;
   top: 0;
   left: 0;
@@ -968,13 +972,13 @@ summary {
   display: inline-block;
 }
 .header__logo {
-  z-index: 1000;
+  z-index: 100;
   display: inline-block;
   width: calc(60px + 20 * ((100vw - 320px) / 1280));
 }
 
 .menu__body {
-  z-index: 100;
+  z-index: 10;
   position: absolute;
   display: flex;
   flex-flow: column;

@@ -1,6 +1,6 @@
 //====================================================================================================
 .header {
-  z-index: 1000000;
+  z-index: 10;
   position: absolute;
   top: 0;
   left: 0;
@@ -21,14 +21,14 @@
   }
 
   &__logo {
-    z-index: 1000;
+    z-index: 100;
     display: inline-block;
     @include adaptive-value("width", 80, 60, 0);
   }
 }
 .menu {
   &__body {
-    z-index: 100;
+    z-index: 10;
     position: absolute;
     display: flex;
     flex-flow: column;
