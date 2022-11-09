@@ -20,8 +20,6 @@
     }
   }
 
-  &__menu {
-  }
   &__logo {
     z-index: 1000;
     display: inline-block;
@@ -29,8 +27,6 @@
   }
 }
 .menu {
-  &__icon {
-  }
   &__body {
     z-index: 100;
     position: absolute;
@@ -94,7 +90,7 @@
     }
   }
 
-  
+
 }
 .menu__list {
   position: relative;
@@ -138,7 +134,7 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   padding: em(1) 0;
   margin: 0 auto;
-  animation: showBlock 0.3s ease 0s;   
+  animation: showBlock 0.3s ease 0s;
   z-index: 10000;
 }
 @keyframes showBlock {
@@ -174,8 +170,8 @@
     width: 100%;
     height: 2px;
   }
-  
-  
+
+
   &::before {
     top: 0;
   }
@@ -193,7 +189,7 @@
 .icon-menu {
   span,
   &::before,
-  &::after { 
+  &::after {
   background-color: rgb(255, 255, 255); }
 
 }
@@ -207,9 +203,6 @@
 .menu-open {
   span {
     width: 0;
-  }
-  &::before,
-  &::after {
   }
   &::before {
     top: calc(50% - rem(1));

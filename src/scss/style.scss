@@ -1,18 +1,11 @@
-//@import "fonts";
-// <Подключаем шрифты>======================================================================================================
-@import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic);
-@import url(https://fonts.googleapis.com/css?family=Oswald:200,300,regular,500,600,700);
-@import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
-// <Подключаем шрифты>============================================================================================
-
 // <Шрифт по умолчанию>=========================================================================================
 $fontfamily: "Montserrat";
 // <Шрифт по умолчанию>=========================================================================================
 
 // <ПЕРЕМЕННЫЕ>=======================================================================================
 $minWidth: 320px;
-$tablet: 768px;
-$pc: 1024px;
+$tablet: 767.99px;
+$pc: 1023.99px;
 $fontsize: 16;
 //ЦВЕТА============================================================================================
 $color-text-grey: #434242;
@@ -73,7 +66,6 @@ $color-main-red: #961914;
     scroll-behavior: smooth;
   }
 }
-
 body {
   font-size: 1em;
   line-height: 140%;
@@ -82,7 +74,7 @@ body {
   color: black;
 }
 //========================================================================================================================================================
-//ГЛАВНЫЙ ФУЛЛСКРИН ЭКРАН
+//ФУЛЛСКРИН ЭКРАН
 .main-screen {
   position: relative;
   min-height: 100vh;
@@ -105,7 +97,7 @@ body {
       font-size: rem(54);
       line-height: 130%;
       width: rem(500);
-      #ellipse::before {
+      .ellipse::before {
         content: url("../images/ellipse_b.svg");
         top: -3px;
         left: -25px;
@@ -146,12 +138,12 @@ body {
 
   //мобильный и декстопный текст на главном экране
   @media (min-width: $pc) {
-    #mobile {
+    .mobile {
       display: none;
     }
   }
   @media (max-width: 1023px) {
-    #desktop {
+    .desktop {
       display: none;
     }
   }
@@ -323,14 +315,13 @@ body {
     :first-child {
       margin-right: -10px;
     }
-    @media (min-width: $pc){
-    padding: rem(32) rem(40) rem(32) rem(40);
-        
+    @media (min-width: 1116px) {
+      padding: rem(32) rem(40) rem(32) rem(40);
     }
   }
   //линия-декор
   .consist__slider::before {
-    content: url("@img/slider/line.svg");
+    content: url("@img/2.BARF/slider/line.svg");
     position: absolute;
     z-index: 10;
     left: 15px;
@@ -343,7 +334,6 @@ body {
 
 //========================================================================================================================================================
 //ПРОБНЫЕ НАБОРЫ ОТ ZOOV
-
 .trial-sets {
   &__body {
     background-color: $color-background-lightpink;
@@ -458,12 +448,12 @@ body {
       color: $color-text-grey;
     }
     &__text {
-      font-family: "Montserrat";
+      // font-family: "Montserrat";
       font-size: em(14);
       margin: 0 0 em(8) 0;
     }
     &__weight {
-      font-family: "Montserrat";
+      // font-family: "Montserrat";
       font-size: em(13);
       line-height: 130%;
       margin: 0 0 em(10) 0;
@@ -565,9 +555,9 @@ body {
   }
   &__title {
     margin-bottom: rem(20);
-    #ellipse::before {
+    .ellipse::before {
       content: url("../images/Ellipse_m.svg");
-      right: -28px;
+      right: -25px;
       top: -5px;
       transform: rotate(4deg);
     }
@@ -590,7 +580,8 @@ body {
   .swiper-pagination-bullet-active {
     background-color: $color-main-red;
   }
-  .swiper-button-prev, .swiper-button-next {
+  .swiper-button-prev,
+  .swiper-button-next {
     color: #ec7973;
     top: 30%;
   }
@@ -744,12 +735,6 @@ body {
       border: none;
     }
   }
-  //@media (min-width: 1279px) {
-  //  &__table:last-child .desktop tr {
-  //    border-bottom: 1px solid red;
-  //  }
-  //}
-
   &__text {
     font-size: em(14);
     color: black;
@@ -1114,11 +1099,13 @@ body {
       }
     }
   }
-  .row-block::before {
-    content: url("/@img/get-zoov/arrow.svg");
-    position: absolute;
-    @include adaptive-value("top", 45, 40, 0);
-    left: -7px;
+  @media (max-width: 1022px) {
+    .row-block::before {
+      content: url("/@img/8.get-zoov/arrow.svg");
+      position: absolute;
+      @include adaptive-value("top", 45, 40, 0);
+      left: -7px;
+    }
   }
   @media (max-width: 1023px) {
     .row-block::before {
@@ -1296,6 +1283,8 @@ body {
       font-size: em(14);
       border-radius: 2px;
       position: relative;
+      width: 100%;
+      max-width: 250px;
       @media (min-width: $tablet) {
         border-radius: 5px;
       }
@@ -1309,7 +1298,8 @@ body {
         margin: 0;
       }
     }
-    &__whatsapp, &__telegram  {
+    &__whatsapp,
+    &__telegram {
       color: white;
       display: inline-block;
       @media (min-width: $tablet) {

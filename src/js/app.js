@@ -7,7 +7,6 @@ import './modules/popup.js'
 import './modules/scroll.js'
 import './modules/dynamicAdapt.js'
 
-
 document.addEventListener('click', function (e) {
   if (e.target.classList.contains("plus-btn")) {
     ++e.target.parentElement.querySelector("input").value;
@@ -15,7 +14,3 @@ document.addEventListener('click', function (e) {
     --e.target.parentElement.querySelector("input").value;
   }
 });
-
-flsFunctions.isWebp();
-
-

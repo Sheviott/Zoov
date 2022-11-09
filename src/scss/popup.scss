@@ -35,8 +35,6 @@
     margin-bottom: rem(0);
   }
   .form {
-    &__body {
-    }
     &__row {
       display: block;
       &--last {
@@ -45,8 +43,6 @@
         justify-content: space-between;
         margin-top: rem(36);
       }
-    }
-    &__group {
     }
     &__input {
       color: black;
@@ -64,10 +60,6 @@
         white-space: nowrap;
       }
     }
-    &__input--checkbox {
-    }
-    &__button {
-    }
   }
   .form__input:focus ~ .form__label,
   .form__input:not(:placeholder-shown) ~ .form__label {
@@ -83,8 +75,6 @@
   }
   .btn {
     padding: rem(13) rem(32);
-  }
-  .btn--w {
   }
 
   //СТИЛИ ДЛЯ СПОЙЛЕРОВ
@@ -133,8 +123,6 @@
       text-decoration: underline dotted rgb(175, 175, 175) 2px;
       text-underline-position: under;
     }
-    &__icon {
-    }
     &__answer {
       margin-top: rem(11);
       font-size: 13px;
@@ -153,15 +141,9 @@
     font-weight: 600;
     //margin-left: 22%;
   }
-  .icon-spoiler {
-    &__line {
-    }
-  }
 
   // КАРТОЧКИ РАЦИОНОВ
   .item-set {
-    &__set-M {
-    }
     &__body {
       @media (min-width: $tablet) {
         display: flex;
@@ -186,8 +168,6 @@
         flex: 0 0 50%;
         height: rem(690);
       }
-    }
-    &__category {
     }
     &__weight {
       margin-bottom: rem(16);
@@ -230,8 +210,6 @@
   }
   //РАССИТАТЬ РАЦИОН
   .calculate {
-    &__body {
-    }
     &__title {
       color: $color-main-red;
       margin-bottom: rem(16);
@@ -245,15 +223,7 @@
       text-decoration: underline $color-main-red;
       text-underline-position: under;
     }
-    .title {
-    }
-    .text {
-    }
     .form {
-      &__group {
-      }
-      &__input {
-      }
       &__label {
         max-width: 100%;
       }
@@ -267,24 +237,9 @@
           font-size: rem(16);
         }
       }
-      &__input----radio {
-      }
       &__button {
         max-width: 100%;
       }
-    }
-
-    .checkboxmark--body {
-    }
-    .checkboxmark {
-    }
-    .check {
-      &__box {
-      }
-    }
-    .btn {
-    }
-    .btn--r {
     }
   }
 }
@@ -300,6 +255,7 @@
   height: 40px;
   top: 5px;
   right: 5px;
+  background: transparent;
 }
 
 .close {
@@ -323,16 +279,6 @@
     background-color: rgb(0, 0, 0);
   }
 }
-
-.thanks {
-  &__body {
-  }
-  &__title {
-  }
-  &__text {
-  }
-}
-
 .ration_set {
   .gallery {
     flex: 0 0 50%;
@@ -362,14 +308,7 @@
       //grid-row: 1/5;
     }
   }
-
-  &_set {
-  }
   .item-set {
-    &__set-ration-1 {
-    }
-    &__body {
-    }
     &__set-name {
       margin-bottom: rem(4);
     }
@@ -386,16 +325,10 @@
         gap: rem(18);
       }
     }
-    &__swiper-wrapper {
-    }
-    &__slide {
-    }
     &__image {
       @media (min-width: $tablet) {
         height: rem(500);
       }
-    }
-    &__content {
     }
     &__description {
       @media (min-width: $tablet) {
@@ -410,26 +343,6 @@
     }
     &__value {
       @extend .item-set__composition;
-    }
-    &__weight {
-    }
-  }
-  //set__swiper
-
-  .popup-item-set__swiper {
-    .item-set {
-      &__swiper-wrapper {
-      }
-      &__slide {
-      }
-      &__image {
-      }
-    }
-    .swiper-wrapper {
-    }
-    .swiper-slide {
-    }
-    .ibg {
     }
   }
   //set__thumbs
@@ -448,10 +361,6 @@
       opacity: 1;
     }
     .item-set {
-      &__swiper-wrapper {
-      }
-      &__slide {
-      }
       &__image {
         img {
           height: rem(64);
@@ -462,37 +371,6 @@
         margin-bottom: rem(24);
       }
     }
-    .swiper-wrapper {
-    }
-    .swiper-slide {
-    }
-    .ibg {
-    }
-  }
-
-  .swiper {
-  }
-  .swiper-wrapper {
-  }
-  .swiper-slide {
-  }
-  .ibg {
-  }
-  .divider {
-  }
-  .item-set--textrow {
-  }
-  .item-set--set-ration-1 {
-  }
-  .form {
-    &__button {
-    }
-  }
-  .btn {
-  }
-  .btn--w {
-  }
-  .popup-link {
   }
 }
 
@@ -542,12 +420,6 @@
       margin-bottom: rem(30);
     }
   }
-  .popup {
-    &__body {
-    }
-    &__content {
-    }
-  }
   .desk {
     display: none;
     @media (min-width: $tablet) {
@@ -555,13 +427,10 @@
       line-height: 48px;
     }
   }
-  .open {
-  }
-  .item-set__set-name {
-  }
+
   .item-set__image {
     @media (min-width:$tablet){
-       height: rem(500); 
+       height: rem(500);
     }
   }
   .item-set__set-subname {
@@ -573,76 +442,30 @@
     padding-top: 0;
   }
   .form {
-    &__group {
-    }
+
     &__input {
       position: relative;
       border-radius: 5px;
     }
-    &__label {
-    }
-    &__row {
-    }
+
     &__label--checkbox {
       @media (min-width:$tablet){
-         font-size: rem(14); 
+         font-size: rem(14);
          margin-bottom: rem(32);
       }
     }
-    &__input--checkbox {
-    }
+
     &__row--last {
       margin: 0;
-    }
-    &__row--set {
-      &_XL {
-      }
     }
     &__button {
       margin: 0;
     }
   }
-  .icon-close {
-  }
-  .close-popup {
-  }
-  .close {
-  }
+
   .item-set {
-    &__body {
-    }
-    &__set-name {
-    }
-    &__set-subname {
-    }
     &__image {
       flex: 0 0 45%;
     }
-    &__price {
-    }
-    &__old-price {
-    }
-    &__new-price {
-    }
-  }
-  .ibg {
-  }
-  .quantity {
-  }
-  .plus-btn {
-  }
-  .minus-btn {
-  }
-  .checkboxmark--body {
-  }
-  .checkboxmark {
-  }
-  .check {
-    &__box {
-    }
-  }
-  .btn {
-  }
-  .btn--w {
   }
 }

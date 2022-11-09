@@ -1,4 +1,3 @@
-
 // Меню бургер
 let iconMenu = document.querySelector('.icon-menu');
 let menuBody = document.querySelector('.menu__body');

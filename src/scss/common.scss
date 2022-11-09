@@ -241,12 +241,12 @@ summary {
 
 //=================================================================================================================================
 //ДЕКОРАТИВНЫЕ ЭЛЕМЕНТЫ
-#ellipse {
+.ellipse {
   position: relative;
   z-index: 1;
   white-space: nowrap;
 }
-#ellipse::before {
+.ellipse::before {
   content: url("../images/Ellipse.svg");
   position: absolute;
   @include adaptive-value("right", -5, -20, 0);
